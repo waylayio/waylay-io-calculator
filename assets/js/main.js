@@ -7,26 +7,33 @@
 (function($) {
 
 	var billing = {
-		requestCharge: 0.0000001,
+		tenant: 5,
+		requestCharge: parseFloat(1/1000000),
 		chargeGBSecond: 0.00002,
-		taskTransitions: 0.000025,
+		taskTransitions: parseFloat(0.025/1000),
 		taskLogCost: 5,
 		networkEgress: parseFloat(0.15/10000000),
 		messages: parseFloat(0.3/1000000),
-		assets: parseFloat(0.2/1000),
+		assets: parseFloat(0.2/100),
 		alarms: parseFloat(1/10000),
 		metricsScanned: parseFloat(0.06/100000),
 		metricsStored: parseFloat(25/15000000),
 		dbResourceSizeCost: 25,
 		objectDbSizeCost: 25,
+		payloadDbSizeCost: 25,
 		objectReads: 0.15,
 		objectWrites: 0.15,
+		payloadReads: parseFloat(0.1/100000),
 		mlCost: 1,
 		mqttBroker: 100,
 		mqttDevice: 0.2,
 		coupon: 0
 	}
-
+	function splitCamelCaseToString(s) {
+		    return s.split(/(?=[A-Z])/).map(function(p) {
+		        return p.charAt(0).toUpperCase() + p.slice(1);
+		    }).join(' ');
+		}
 	var settings = {
 			parallax: true,
 		// Parallax factor (lower = more intense, higher = less intense).
@@ -153,22 +160,30 @@
 					var objectDbSize = $('#object-db').val() || 0
 					var objectReads = $('#object-reads').val() || 0
 					var objectWrites = $('#object-writes').val() || 0
+					var payloadDbSize = $('#payload-db').val() || 0
+					var payloadReads = $('#payload-reads').val() || 0
+
+
 					var mqtt = $('input[type=radio][name=mqtt]:checked').val();
 
 					if(mqtt == 'true'){
-							result.brokerCost = parseFloat(billing.mqttBroker)
+							result.mqttBrokerCost = parseFloat(billing.mqttBroker)
+					} else {
+							devices = 0
+							$('#devices').val('0')
 					}
 
+					result.tenantCost = billing.tenant
 
 					var billableRequests = numberOfExecutions;
 					var requestCost = billableRequests * (billing.requestCharge);
-					result.requestCost = parseFloat(requestCost);
+					result.executionRequestCost = parseFloat(requestCost);
 			
 					var totalComputeInSeconds = numberOfExecutions * (executedEstimationTime / 1000);
 					var totalComputeGBSeconds = totalComputeInSeconds * (memory/1024);
 
 					var billableCompute = totalComputeGBSeconds * billing.chargeGBSecond;
-					result.executionCost = parseFloat(billableCompute);
+					result.executionComputeCost = parseFloat(billableCompute);
 			
 					var billableTaskTransitions = parseFloat(taskTransitions) * billing.taskTransitions
 					result.taskTransitionsCost = parseFloat(billableTaskTransitions)
@@ -186,16 +201,16 @@
 					result.assetsCost = parseFloat(billableAssets);
 
 					var billableDevices = devices * billing.mqttDevice;
-					result.devicesCost = parseFloat(billableDevices);
+					result.mqttDevicesCost = parseFloat(billableDevices);
 
 					var billableML = ml * billing.mlCost;
 					result.mlCost = parseFloat(billableML);
 
 					var billableResouceDbSize = resourceDbSize * billing.dbResourceSizeCost;
-					result.resourceDbSizeCost = parseFloat(billableResouceDbSize);
+					result.resourceDatabaseCost = parseFloat(billableResouceDbSize);
 
 					var billableObjectDbSize = objectDbSize * billing.objectDbSizeCost;
-					result.objectDbSizeCost = parseFloat(billableObjectDbSize);
+					result.objectSizeCost = parseFloat(billableObjectDbSize);
 
 					var billableObjectReads = objectReads * billing.objectReads;
 					result.objectReadsCost = parseFloat(billableObjectReads);
@@ -209,7 +224,12 @@
 					var billableMetricsScanned = metricsScanned * billing.metricsScanned
 					result.metricsScannedCost = parseFloat(billableMetricsScanned);
 
-			
+					var billablePayloadDbSize = payloadDbSize * billing.payloadDbSizeCost;
+					result.payloadDatabaseCost = parseFloat(billablePayloadDbSize);
+
+					var billablePayloadReads = payloadReads * billing.payloadReads;
+					result.payloadReadsCost = parseFloat(billablePayloadReads);
+
 					result.totalCost = Object.values(result).reduce((a, b) => a + b);
 					if (result.totalCost > billing.coupon) {
 						 result.totalCost -= parseFloat(billing.coupon);
@@ -220,15 +240,22 @@
 					return result;
 				}
 
-			function Update() {
-				var result = calculateCost();
+			function update() {
+				var result = calculateCost()
 				if (result.totalCost !== undefined) {
-						$('#total-cost').text(parseFloat(result.totalCost).toFixed(1));
+						$('#total-cost').text(parseFloat(result.totalCost).toFixed(2))
+						$('#estimation tbody').empty();
+						$('#estimation').append('<tr><td>Item</td><td>Cost')
+						Object.keys(result).forEach(function(key){
+						if(key !== 'totalCost' && result[key])
+					  $('#estimation').append('<tr><td>'+ splitCamelCaseToString(key)+'</td><td>'+parseFloat(result[key]).toFixed(2))
+					});
 				}
+
 
 			}
 			$('.myClass').on('input propertychange paste', function(result, value) {
-				Update();
+				update();
 			});
 	});
 

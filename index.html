@@ -24,7 +24,6 @@
 <body id="top">
 	<!-- Header -->
 	<header id="header">
-		<a href="https://www.waylay.io/" ><img src="https://uploads-ssl.webflow.com/600af1353f91b9eff1de3e74/6011456a7e194283a0ffe7d3_Waylay-Logo-Dark.svg" alt="" /></a>
 		<h1><strong>Waylay IO Cost Calculator</strong><br />
 				check out our <a href="https://forum.waylay.io">forum</a>.<br/>
 				or <a href="http://docs-io.waylay.io">documentation</a>.</h1>
@@ -82,13 +81,19 @@
 								<input type="number" name="alarms" id="alarms" placeholder="Number of alarms per month" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="object-db" id="object-db" placeholder="Object store size [GB]" />
+								<input type="number" name="object-db" id="object-db" placeholder="Object storage size [GB]" />
 							</div>
 							<div class="12u$ myClass">
 								<input type="number" name="object-reads" id="object-reads" placeholder="Object reads [GB]" />
 							</div>
 							<div class="12u$ myClass">
 								<input type="number" name="object-writes" id="object-writes" placeholder="Object writes [GB]" />
+							</div>
+							<div class="12u$ myClass">
+								<input type="number" name="payload-db" id="payload-db" placeholder="Payload storage size [GB]" />
+							</div>
+							<div class="12u$ myClass">
+								<input type="number" name="payload-reads" id="payload-reads" placeholder="Payload reads" />
 							</div>
 							<div class="12u$ myClass">
 								<input type="radio" name="mqtt" value="true"> <span class="label">True</span>
@@ -156,8 +161,8 @@
 							<a href="#">Number of alarms per month</a>
 						</li>
 						<li>
-							<h3 class="icon fa-cloud"><span class="label">Object store size</span></h3>
-							<a href="#">Object store size [GB]</a>
+							<h3 class="icon fa-cloud"><span class="label">Object storage size</span></h3>
+							<a href="#">Object storage size [GB]</a>
 						</li>
 						<li>
 							<h3 class="icon fa-cloud-upload"><span class="label">Object reads</span></h3>
@@ -166,6 +171,14 @@
 						<li>
 							<h3 class="icon fa-cloud-download"><span class="label">Object writes</span></h3>
 							<a href="#">Object writes [GB]</a>
+						</li>
+						<li>
+							<h3 class="icon fa-database"><span class="label">Payload storage size</span></h3>
+							<a href="#">Payload storage size [GB]</a>
+						</li>
+						<li>
+							<h3 class="icon fa-envelope-o"><span class="label">Payload reads</span></h3>
+							<a href="#">Payload object reads</a>
 						</li>
 						<li>
 							<h3 class="icon fa-connectdevelop"><span class="label">Memory Size</span></h3>
@@ -188,6 +201,10 @@
 					<td>Estimated cost</td>
 					<th>$<span id="total-cost">-</span></td>
 				</tr>
+			</table>
+			<hr/>
+			<p>Details</p>
+			<table id="estimation">
 			</table>
 		</section>
 	</div>
