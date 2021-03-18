@@ -247,7 +247,7 @@
 						$('#estimation').append('<tr><td>Item</td><td>Cost')
 						Object.keys(result).forEach(function(key){
 						if(key !== 'totalCost' && result[key])
-					  $('#estimation').append('<tr><td>'+ splitCamelCaseToString(key)+'</td><td>'+parseFloat(result[key]).toFixed(2))
+					  $('#estimation').append('<tr><td>'+ splitCamelCaseToString(key)+'</td><td>'+ '$' + parseFloat(result[key]).toFixed(2))
 					});
 				}
 
