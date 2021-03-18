@@ -52,7 +52,6 @@
 		 var $window = $(window),
 			$body = $('body'),
 			$header = $('#header');
-			$("#pricingInfo").load("pricing.html"); 
 
 		// Disable animations/transitions until the page has loaded.
 			$body.addClass('is-loading');

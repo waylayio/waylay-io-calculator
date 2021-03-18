@@ -18,214 +18,326 @@
 	  ga('create', 'UA-****', 'auto');
 	  ga('send', 'pageview'); -->
 
-	</script>
-</head>
+	 </script>
+	</head>
 
-<body id="top">
-	<!-- Header -->
-	<header id="header">
-		<h1><strong>Waylay IO Cost Calculator</strong><br />
-			 <a href="pricing.html">Metrics explained</a>
-	</header>
-
-	<!-- Main -->
-	<div id="main">
-		<section id="one">
-			<header class="major">
-				<h2>Configure and estimate the cost<code>(beta)</code></h2>
+	<body id="top">
+		<!-- Header -->
+		<header id="header">
+			<h1><strong>Waylay IO Cost Calculator</strong><br />
+				<a href="pricing.html">Metrics explained</a>
 			</header>
-			<div class="row">
-				<span><h4>Estimate the cost of consumption in one month</h4></span>
-				<div class="7u 12u$(small)">
-					<form method="post" action="#">
-						<div class="row uniform 50%">
-							<div class="12u$ myClass">
-								<input type="number" name="number-executions" id="number-executions" placeholder="Number of Executions"/>
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="executed-estimation-time" id="executed-estimation-time" placeholder="Estimated Execution Time (ms)" />
-							</div>
-							<div class="12u$ myClass">
-								<select name="memory" id="memory">
-									<option value="128">128MB</option>
-									<option value="256">256MB</option>
-									<option value="512">512MB</option>
-								</select>
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="task-transitions" id="task-transitions" placeholder="Task transitions" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="task-logs" id="task-logs" placeholder="Task log size [GB]" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="assets" id="assets" placeholder="Number of assets" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="resource-db" id="resource-db" placeholder="Resource database size [GB]" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="messages" id="messages" placeholder="Number of messages" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="metrics" id="metrics-stored" placeholder="Number of metrics stored" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="metrics-scanned" id="metrics-scanned" placeholder="Number of metrics scanned" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="ml" id="ml" placeholder="ML minutes per month" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="alarms" id="alarms" placeholder="Number of alarms per month" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="object-db" id="object-db" placeholder="Object storage size [GB]" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="object-reads" id="object-reads" placeholder="Object reads [GB]" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="object-writes" id="object-writes" placeholder="Object writes [GB]" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="payload-db" id="payload-db" placeholder="Payload storage size [GB]" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="number" name="payload-reads" id="payload-reads" placeholder="Payload reads" />
-							</div>
-							<div class="12u$ myClass">
-								<input type="radio" name="mqtt" value="true"> <span class="label">True</span>
-								<input type="radio" name="mqtt" value="false" checked> <span class="label">False</span>
-							</div>				
-							<div class="12u$ myClass">
-								<input type="number" name="devices" id="devices" placeholder="Number of MQTT devices" />
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="5u$ 12u$(small)">
-					<ul class="labeled-icons">
-						<li>
-							<h3 class="icon fa-bolt"><span class="label">Number of Executions</span></h3>
-							<a href="pricing.html#functions">Number of Executions</a>
-						</li>
-						<li>
-							<h3 class="icon fa-hourglass-2"><span class="label">Estimated Execution Time (ms)</span></h3>
-							<a href="pricing.html#functions" >Estimated Execution Time (ms)</a>
-						</li>
-						<li>
-							<h3 class="icon fa-battery-2 "><span class="label">Memory Size</span></h3>
-							<a href="pricing.html#functions">Memory Size</a>
-						</li>
-						<li>
-						<li>
-							<h3 class="icon fa-cogs"><span class="label">Task transitions</span></h3>
-							<a href="pricing.html#task">Task transitions</a>
-						</li>
-						<li>
-							<h3 class="icon fa-file"><span class="label">Task log size [GB]</span></h3>
-							<a href="pricing.html#task">Task log size [GB]</a>
-						</li>
-						<li>
-							<h3 class="icon fa-industry"><span class="label">Number of assets</span></h3>
-							<a href="pricing.html#assets">Number of assets</a>
-						</li>
-						<li>
-							<h3 class="icon fa-database"><span class="label">Resource database size</span></h3>
-							<a href="pricing.html#resource">Resource database size [GB]</a>
-						</li>
-						<li>
-							<h3 class="icon fa-envelope"><span class="label">Number of messages</span></h3>
-							<a href="pricing.html#messages">Number of messages</a>
-						</li>
-						<li>
-							<li>
-							<h3 class="icon fa-bar-chart"><span class="label">Number of metrics stored</span></h3>
-							<a href="pricing.html#time-series">Number of metrics stored</a>
-						</li>
-						<li>
-							<li>
-							<h3 class="icon fa-search-plus"><span class="label">Number of metrics scanned</span></h3>
-							<a href="pricing.html#time-series">Number of metrics scanned</a>
-						</li>
-						<li>
-							<li>
-							<h3 class="icon fa-hourglass-1"><span class="label">ML minutes per month</span></h3>
-							<a href="pricing.html#byoml">ML minutes per month</a>
-						</li>
-						<li>
-							<li>
-							<h3 class="icon fa-bell"><span class="label">Number of alarms per month</span></h3>
-							<a href="pricing.html#alarms">Number of alarms per month</a>
-						</li>
-						<li>
-							<h3 class="icon fa-cloud"><span class="label">Object storage size</span></h3>
-							<a href="pricing.html#object">Object storage size [GB]</a>
-						</li>
-						<li>
-							<h3 class="icon fa-cloud-upload"><span class="label">Object reads</span></h3>
-							<a href="pricing.html#object">Object reads [GB]</a>
-						</li>
-						<li>
-							<h3 class="icon fa-cloud-download"><span class="label">Object writes</span></h3>
-							<a href="pricing.html#object">Object writes [GB]</a>
-						</li>
-						<li>
-							<h3 class="icon fa-database"><span class="label">Payload storage size</span></h3>
-							<a href="pricing.html#payload">Payload storage size [GB]</a>
-						</li>
-						<li>
-							<h3 class="icon fa-envelope-o"><span class="label">Payload reads</span></h3>
-							<a href="pricing.html#payload">Payload object reads</a>
-						</li>
-						<li>
-							<h3 class="icon fa-connectdevelop"><span class="label">Memory Size</span></h3>
-							<a href="#">MQTT Broker</a>
-						</li>	
-						<li>
-							<h3 class="icon fa-cog"><span class="label">Number of MQTT devices</span></h3>
-							<a href="#">Number of MQTT devices</a>
-						</li>					
-					</ul>
-				</div>
-			</div>
-			<hr/>
-			<table>
-				<tr>
-					<th>Total</th>
-					<th>Cost</th>
-				</tr>
-				<tr>
-					<td>Estimated cost</td>
-					<th>$<span id="total-cost">-</span></td>
-				</tr>
-			</table>
-			<hr/>
-			<p>Details</p>
-			<table id="estimation">
-			</table>
-		</section>
-	</div>
 
-	<!-- Footer -->
-	<footer id="footer">
-		<ul class="icons">
-			<li><a href="https://twitter.com/waylay_io" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-			<li><a href="mailto:cloud@waylay.io" class="icon fa-envelope-o"><span class="label"></span></a></li>
-		</ul>
-		<ul class="copyright">
-			<li>&copy; Waylay IO</li>
-			<li>login : <a href="http://console-io.waylay.io">Waylay IO</a></li>
-		</ul>
-	</footer>
+			<!-- Main -->
+			<div id="main">
+				<section id="one">
+					<header class="major">
+						<h2>Configure and estimate the cost<code>(beta)</code></h2>
+					</header>
+						<span><h4>Waylay platform</h4></span>
+					<figure class="main-app">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 808" preserveAspectRatio="xMinYMin meet" >
+							<image width="1200" height="808" href="https://docs-io.waylay.io/assets/images/architecture/Waylay_architecture.png">
+							</image>
+							<!-- -->
+							<a href="https://docs-io.waylay.io/#features/data_ingestion/mqtt/" >
+								<rect class="pointer" x="140" y="418" style="fill:rgb(0,0,255);" opacity="0.05" width="110" height="45" />
+							</a>
+							<!-- -->
+							<a href="https://docs-io.waylay.io/#/features/data_ingestion/opc/" >
+								<rect class="pointer" x="140" y="465" style="fill:rgb(0,0,255);" opacity="0.05" width="110" height="45" />
+							</a>
+							<a href="https://docs-io.waylay.io/#/features/data_ingestion/lpwan/" >
+								<rect class="pointer" x="140" y="512" style="fill:rgb(0,0,255);" opacity="0.05" width="110" height="45" />
+							</a>
+							<a href="https://docs-io.waylay.io/#/features/data_ingestion/sigfox/" >
+								<rect class="pointer" x="140" y="560" style="fill:rgb(0,0,255);" opacity="0.05" width="110" height="45" />
+							</a>
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/data_ingestion/iot_platforms/arm?id=arm-pelion-integration" >
+							<rect class="pointer" x="140" y="653" style="fill:rgb(0,0,255);" opacity="0.05" width="110" height="45" />
+						</a>
+						<!-- -->
+						<a href="https://docs-io.waylay.io/#/features/data_ingestion/iot_platforms/aws" >
+							<rect class="pointer" x="270" y="275" style="fill:rgb(0,0,255);" opacity="0.05" width="165" height="45" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/data_ingestion/iot_platforms/azure" >
+							<rect class="pointer" x="270" y="323" style="fill:rgb(0,0,255);" opacity="0.05" width="165" height="45" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/data_ingestion/iot_platforms/google" >
+							<rect class="pointer" x="270" y="370" style="fill:rgb(0,0,255);" opacity="0.05" width="165" height="45" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/data_ingestion/mqtt/" >
+							<rect class="pointer" x="270" y="418" style="fill:rgb(0,0,255);" opacity="0.05" width="165" height="45" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/data_ingestion/mqtt/" >
+							<rect class="pointer" x="270" y="465" style="fill:rgb(0,0,255);" opacity="0.05" width="165" height="45" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/data_ingestion/webhooks/" >
+							<rect class="pointer" x="270" y="512" style="fill:rgb(0,0,255);" opacity="0.05" width="165" height="45" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/data_ingestion/webhooks/" >
+							<rect class="pointer" x="270" y="560" style="fill:rgb(0,0,255);" opacity="0.05" width="165" height="45" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/api/broker/?id=websockets" >
+							<rect class="pointer" x="270" y="607" style="fill:rgb(0,0,255);" opacity="0.05" width="165" height="45" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/data_ingestion/lpwan/" >
+							<rect class="pointer" x="270" y="653" style="fill:rgb(0,0,255);" opacity="0.05" width="165" height="45" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/api/broker/?id=websockets" >
+							<rect class="pointer" x="270" y="700" style="fill:rgb(0,0,255);" opacity="0.05" width="165" height="45" />
+						</a>
+						<!-- -->
+						<a href="https://docs-io.waylay.io/#/api/broker/" >
+							<rect class="pointer" x="470" y="275" style="fill:rgb(0,0,255);" opacity="0.05" width="260" height="60" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/api/broker/?id=message-retrieval" >
+							<rect class="pointer" x="470" y="335" style="fill:rgb(0,0,255);" opacity="0.05" width="260" height="60" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/rules/" >
+							<rect class="pointer" x="470" y="400" style="fill:rgb(0,0,255);" opacity="0.05" width="260" height="60" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/plugins/" >
+							<rect class="pointer" x="470" y="468" style="fill:rgb(0,0,255);" opacity="0.05" width="260" height="60" />
+						</a>
+						<!-- -->
+						<a href="https://docs-io.waylay.io/#/features/rules/?id=templates" >
+							<rect class="pointer" x="760" y="275" style="fill:rgb(0,0,255);" opacity="0.05" width="130" height="60" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/rules/" >
+							<rect class="pointer" x="760" y="335" style="fill:rgb(0,0,255);" opacity="0.05" width="130" height="60" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/api/" >
+							<rect class="pointer" x="760" y="400" style="fill:rgb(0,0,255);" opacity="0.05" width="130" height="60" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/alarms/" >
+							<rect class="pointer" x="760" y="468" style="fill:rgb(0,0,255);" opacity="0.05" width="130" height="60" />
+						</a>
+						<!-- -->
+						<a href="https://docs-io.waylay.io/#/plugins/" >
+							<rect class="pointer" x="890" y="275" style="fill:rgb(0,0,255);" opacity="0.05" width="130" height="60" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/sensors/" >
+							<rect class="pointer" x="890" y="335" style="fill:rgb(0,0,255);" opacity="0.05" width="130" height="60" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/labs/" >
+							<rect class="pointer" x="890" y="400" style="fill:rgb(0,0,255);" opacity="0.05" width="130" height="60" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/vault/" >
+							<rect class="pointer" x="890" y="468" style="fill:rgb(0,0,255);" opacity="0.05" width="130" height="60" />
+						</a>
+						<!-- -->
+						<a href="https://docs-io.waylay.io/#/features/resources/" >
+							<rect class="pointer" x="455" y="615" style="fill:rgb(0,0,255);" opacity="0.05" width="65" height="100" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/api/broker/?id=time-series-data-retrieval" >
+							<rect class="pointer" x="520" y="615" style="fill:rgb(0,0,255);" opacity="0.05" width="65" height="100" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/etl/" >
+							<rect class="pointer" x="590" y="615" style="fill:rgb(0,0,255);" opacity="0.05" width="65" height="100" />
+						</a>
+						<a href="https://docs-io.waylay.io/#/features/storage/" >
+							<rect class="pointer" x="660" y="615" style="fill:rgb(0,0,255);" opacity="0.05" width="65" height="100" />
+						</a>
+						<!-- -->
+						<a href="https://docs-io.waylay.io/#/features/byoml/">
+							<rect class="pointer" x="760" y="615" style="fill:rgb(0,0,255);" opacity="0.05" width="260" height="80" />
+						</a>
+					</svg>
+				</figure>
+				<div class="row">
+					<span><h4>Estimate the cost of consumption in one month</h4></span>
+					<div class="7u 12u$(small)">
+						<form method="post" action="#">
+							<div class="row uniform 50%">
+								<div class="12u$ myClass">
+									<input type="number" name="number-executions" id="number-executions" placeholder="Number of Executions"/>
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="executed-estimation-time" id="executed-estimation-time" placeholder="Estimated Execution Time (ms)" />
+								</div>
+								<div class="12u$ myClass">
+									<select name="memory" id="memory">
+										<option value="128">128MB</option>
+										<option value="256">256MB</option>
+										<option value="512">512MB</option>
+									</select>
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="task-transitions" id="task-transitions" placeholder="Task transitions" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="task-logs" id="task-logs" placeholder="Task log size [GB]" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="assets" id="assets" placeholder="Number of assets" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="resource-db" id="resource-db" placeholder="Resource database size [GB]" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="messages" id="messages" placeholder="Number of messages" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="metrics" id="metrics-stored" placeholder="Number of metrics stored" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="metrics-scanned" id="metrics-scanned" placeholder="Number of metrics scanned" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="ml" id="ml" placeholder="ML minutes per month" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="alarms" id="alarms" placeholder="Number of alarms per month" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="object-db" id="object-db" placeholder="Object storage size [GB]" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="object-reads" id="object-reads" placeholder="Object reads [GB]" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="object-writes" id="object-writes" placeholder="Object writes [GB]" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="payload-db" id="payload-db" placeholder="Payload storage size [GB]" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="number" name="payload-reads" id="payload-reads" placeholder="Payload reads" />
+								</div>
+								<div class="12u$ myClass">
+									<input type="radio" name="mqtt" value="true"> <span class="label">True</span>
+									<input type="radio" name="mqtt" value="false" checked> <span class="label">False</span>
+								</div>				
+								<div class="12u$ myClass">
+									<input type="number" name="devices" id="devices" placeholder="Number of MQTT devices" />
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="5u$ 12u$(small)">
+						<ul class="labeled-icons">
+							<li>
+								<h3 class="icon fa-bolt"><span class="label">Number of Executions</span></h3>
+								<a href="pricing.html#functions">Number of Executions</a>
+							</li>
+							<li>
+								<h3 class="icon fa-hourglass-2"><span class="label">Estimated Execution Time (ms)</span></h3>
+								<a href="pricing.html#functions" >Estimated Execution Time (ms)</a>
+							</li>
+							<li>
+								<h3 class="icon fa-battery-2 "><span class="label">Memory Size</span></h3>
+								<a href="pricing.html#functions">Memory Size</a>
+							</li>
+							<li>
+								<li>
+									<h3 class="icon fa-cogs"><span class="label">Task transitions</span></h3>
+									<a href="pricing.html#task">Task transitions</a>
+								</li>
+								<li>
+									<h3 class="icon fa-file"><span class="label">Task log size [GB]</span></h3>
+									<a href="pricing.html#task">Task log size [GB]</a>
+								</li>
+								<li>
+									<h3 class="icon fa-industry"><span class="label">Number of assets</span></h3>
+									<a href="pricing.html#assets">Number of assets</a>
+								</li>
+								<li>
+									<h3 class="icon fa-database"><span class="label">Resource database size</span></h3>
+									<a href="pricing.html#resource">Resource database size [GB]</a>
+								</li>
+								<li>
+									<h3 class="icon fa-envelope"><span class="label">Number of messages</span></h3>
+									<a href="pricing.html#messages">Number of messages</a>
+								</li>
+								<li>
+									<li>
+										<h3 class="icon fa-bar-chart"><span class="label">Number of metrics stored</span></h3>
+										<a href="pricing.html#time-series">Number of metrics stored</a>
+									</li>
+									<li>
+										<li>
+											<h3 class="icon fa-search-plus"><span class="label">Number of metrics scanned</span></h3>
+											<a href="pricing.html#time-series">Number of metrics scanned</a>
+										</li>
+										<li>
+											<li>
+												<h3 class="icon fa-hourglass-1"><span class="label">ML minutes per month</span></h3>
+												<a href="pricing.html#byoml">ML minutes per month</a>
+											</li>
+											<li>
+												<li>
+													<h3 class="icon fa-bell"><span class="label">Number of alarms per month</span></h3>
+													<a href="pricing.html#alarms">Number of alarms per month</a>
+												</li>
+												<li>
+													<h3 class="icon fa-cloud"><span class="label">Object storage size</span></h3>
+													<a href="pricing.html#object">Object storage size [GB]</a>
+												</li>
+												<li>
+													<h3 class="icon fa-cloud-upload"><span class="label">Object reads</span></h3>
+													<a href="pricing.html#object">Object reads [GB]</a>
+												</li>
+												<li>
+													<h3 class="icon fa-cloud-download"><span class="label">Object writes</span></h3>
+													<a href="pricing.html#object">Object writes [GB]</a>
+												</li>
+												<li>
+													<h3 class="icon fa-database"><span class="label">Payload storage size</span></h3>
+													<a href="pricing.html#payload">Payload storage size [GB]</a>
+												</li>
+												<li>
+													<h3 class="icon fa-envelope-o"><span class="label">Payload reads</span></h3>
+													<a href="pricing.html#payload">Payload object reads</a>
+												</li>
+												<li>
+													<h3 class="icon fa-connectdevelop"><span class="label">Memory Size</span></h3>
+													<a href="#">MQTT Broker</a>
+												</li>	
+												<li>
+													<h3 class="icon fa-cog"><span class="label">Number of MQTT devices</span></h3>
+													<a href="#">Number of MQTT devices</a>
+												</li>					
+											</ul>
+										</div>
+									</div>
+									<hr/>
+									<table>
+										<tr>
+											<th>Total</th>
+											<th>Cost</th>
+										</tr>
+										<tr>
+											<td>Estimated cost</td>
+											<th>$<span id="total-cost">-</span></td>
+											</tr>
+										</table>
+										<hr/>
+										<p>Details</p>
+										<table id="estimation">
+										</table>
+									</section>
+								</div>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.poptrox.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-</body>
+								<!-- Footer -->
+								<footer id="footer">
+									<ul class="icons">
+										<li><a href="https://twitter.com/waylay_io" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="mailto:cloud@waylay.io" class="icon fa-envelope-o"><span class="label"></span></a></li>
+									</ul>
+									<ul class="copyright">
+										<li>&copy; Waylay IO</li>
+										<li>login : <a href="http://console-io.waylay.io">Waylay IO</a></li>
+									</ul>
+								</footer>
 
-</html>
+								<!-- Scripts -->
+								<script src="assets/js/jquery.min.js"></script>
+								<script src="assets/js/jquery.poptrox.min.js"></script>
+								<script src="assets/js/skel.min.js"></script>
+								<script src="assets/js/util.js"></script>
+								<script src="assets/js/main.js"></script>
+							</body>
+
+							</html>
