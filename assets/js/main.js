@@ -148,7 +148,7 @@
 							$('#number-executions').val(reactiveFunctions + pollingFunctions + byomlPFunctions)
 							$('#executed-estimation-time').val(150)
 							$('#task-transitions').val(reactiveFunctions + pollingFunctions + byomlPFunctions) 
-							$('#ml').val(byomlTime)
+							$('#ml').val(parseFloat(byomlTime).toFixed(1))
 							$('#metrics-scanned').val(metricsScanned)
 						}
 						update()
