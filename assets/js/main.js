@@ -145,12 +145,22 @@
 							var byomlTime = simBYOML * simDevices * POLLING * 30 * 0.5 / 60
 							var metricsScanned = simQuery * Q_POINTS * 30 * simDevices + simBYOML * simDevices * POLLING * 30 
 							var payloadDb = parseFloat(simDevices * PAYLOAD_BYTES * 100 / 1024 / 1024 / 1024).toFixed(3)
+							var mqtt = $('input[type=radio][name=mqtt1]:checked').val();
+							if(mqtt == 'true'){
+									$('#devices').val(simDevices)
+									$('input[type=radio][name=mqtt]').filter('[value=true]').prop('checked', true)
+									$('input[type=radio][name=mqtt]').filter('[value=false]').prop('checked', false)
+							} else {
+								$('#devices').val('0')
+									$('input[type=radio][name=mqtt]').filter('[value=true]').prop('checked', false)
+									$('input[type=radio][name=mqtt]').filter('[value=false]').prop('checked', true)
+							}
 							$('#messages').val(messages)
 							$('#payload-db').val(payloadDb) 
 							$('#metrics-stored').val(messages * METRICS_PAYLOAD)
 							$('#number-executions').val(reactiveFunctions + pollingFunctions + byomlPFunctions)
 							$('#executed-estimation-time').val(150)
-							$('#task-transitions').val(reactiveFunctions + pollingFunctions + byomlPFunctions) 
+							$('#task-transitions').val(reactiveFunctions * 2 + pollingFunctions + byomlPFunctions) 
 							$('#ml').val(parseFloat(byomlTime).toFixed(1))
 							$('#metrics-scanned').val(metricsScanned)
 						}
