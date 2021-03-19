@@ -5,30 +5,6 @@
 */
 
 (function($) {
-
-	var billing = {
-		tenant: 5,
-		requestCharge: parseFloat(1/1000000),
-		chargeGBSecond: 0.00002,
-		taskTransitions: parseFloat(0.025/1000),
-		taskLogCost: 5,
-		networkEgress: parseFloat(0.15/10000000),
-		messages: parseFloat(0.3/1000000),
-		assets: parseFloat(0.2/100),
-		alarms: parseFloat(1/10000),
-		metricsScanned: parseFloat(0.06/100000),
-		metricsStored: parseFloat(25/15000000),
-		dbResourceSizeCost: 25,
-		objectDbSizeCost: 25,
-		payloadDbSizeCost: 25,
-		objectReads: 0.15,
-		objectWrites: 0.15,
-		payloadReads: parseFloat(0.1/100000),
-		mlCost: 1,
-		mqttBroker: 100,
-		mqttDevice: 0.2,
-		coupon: 0
-	}
 	function splitCamelCaseToString(s) {
 		    return s.split(/(?=[A-Z])/).map(function(p) {
 		        return p.charAt(0).toUpperCase() + p.slice(1);
@@ -52,6 +28,14 @@
 		 var $window = $(window),
 			$body = $('body'),
 			$header = $('#header');
+			// Initialize wizard
+			$("#wizard").steps({
+    transitionEffect: "slideLeft",
+    autoFocus: true,
+    enableFinishButton: false,
+    stepsOrientation: 'vertical'
+			});
+
 
 		// Disable animations/transitions until the page has loaded.
 			$body.addClass('is-loading');
@@ -137,6 +121,32 @@
 					});
 
 				});
+
+				function recalc() {
+						var simDevices = parseFloat($('#simul-devices').val()) || 0
+						var simMessages = parseFloat($('#simul-messages').val()) || 0
+						var simReactive = parseFloat($('#simul-reactive').val()) || 0
+						var simPolling = parseFloat($('#simul-polling').val()) || 0
+						var simBYOML = $('#simul-byoml').val() || 0
+						var simQuery = $('#simul-query').val() || 0
+
+						if(simDevices && simMessages) {
+							var messages = simDevices*simMessages * 24 * 30
+							const THR = 0.15  //how often it would trigger
+							const NUM_SENSORS = 3 // average number of polling sensors in one task
+							const POLLING = 96 //15 minutes polling per day
+							var reactiveFunctions = simReactive * messages * THR
+							var pollingFunctions = simPolling * simDevices * NUM_SENSORS * POLLING * 30
+							var byomlPFunctions = simBYOML * simDevices * NUM_SENSORS * POLLING * 30
+							var byomlTime = simBYOML * simDevices * POLLING * 30 * 0.5 / 60
+							$('#messages').val(messages)
+							$('#number-executions').val(reactiveFunctions + pollingFunctions + byomlPFunctions)
+							$('#executed-estimation-time').val(150)
+							$('#task-transitions').val(reactiveFunctions + pollingFunctions + byomlPFunctions) 
+							$('#ml').val(byomlTime)
+						}
+						update()
+				}
 
 				function calculateCost() {
 					var result = {
@@ -255,6 +265,10 @@
 			}
 			$('.myClass').on('input propertychange paste', function(result, value) {
 				update();
+			});
+
+			$('.myClass1').on('input propertychange paste', function(result, value) {
+				recalc()
 			});
 	});
 
