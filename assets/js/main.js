@@ -129,21 +129,27 @@
 						var simPolling = parseFloat($('#simul-polling').val()) || 0
 						var simBYOML = $('#simul-byoml').val() || 0
 						var simQuery = $('#simul-query').val() || 0
+						$('#assets').val(simDevices)
 
 						if(simDevices && simMessages) {
-							var messages = simDevices*simMessages * 24 * 30
+							const messages = simDevices*simMessages * 24 * 30
 							const THR = 0.15  //how often it would trigger
 							const NUM_SENSORS = 3 // average number of polling sensors in one task
 							const POLLING = 96 //15 minutes polling per day
+							const METRICS_PAYLOAD = 3 // average number of metrics in payload
+							const Q_POINTS = 200 // average number of metrics scanned in one API call
 							var reactiveFunctions = simReactive * messages * THR
 							var pollingFunctions = simPolling * simDevices * NUM_SENSORS * POLLING * 30
 							var byomlPFunctions = simBYOML * simDevices * NUM_SENSORS * POLLING * 30
 							var byomlTime = simBYOML * simDevices * POLLING * 30 * 0.5 / 60
+							var metricsScanned = simQuery * Q_POINTS * 30 * simDevices + simBYOML * simDevices * POLLING * 30 
 							$('#messages').val(messages)
+							$('#metrics-stored').val(messages * METRICS_PAYLOAD)
 							$('#number-executions').val(reactiveFunctions + pollingFunctions + byomlPFunctions)
 							$('#executed-estimation-time').val(150)
 							$('#task-transitions').val(reactiveFunctions + pollingFunctions + byomlPFunctions) 
 							$('#ml').val(byomlTime)
+							$('#metrics-scanned').val(metricsScanned)
 						}
 						update()
 				}
