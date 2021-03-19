@@ -138,12 +138,15 @@
 							const POLLING = 96 //15 minutes polling per day
 							const METRICS_PAYLOAD = 3 // average number of metrics in payload
 							const Q_POINTS = 200 // average number of metrics scanned in one API call
+							const PAYLOAD_BYTES = 100 // average payload size
 							var reactiveFunctions = simReactive * messages * THR
 							var pollingFunctions = simPolling * simDevices * NUM_SENSORS * POLLING * 30
 							var byomlPFunctions = simBYOML * simDevices * NUM_SENSORS * POLLING * 30
 							var byomlTime = simBYOML * simDevices * POLLING * 30 * 0.5 / 60
 							var metricsScanned = simQuery * Q_POINTS * 30 * simDevices + simBYOML * simDevices * POLLING * 30 
+							var payloadDb = parseFloat(simDevices * PAYLOAD_BYTES * 100 / 1024 / 1024 / 1024).toFixed(3)
 							$('#messages').val(messages)
+							$('#payload-db').val(payloadDb) 
 							$('#metrics-stored').val(messages * METRICS_PAYLOAD)
 							$('#number-executions').val(reactiveFunctions + pollingFunctions + byomlPFunctions)
 							$('#executed-estimation-time').val(150)
@@ -219,7 +222,7 @@
 					result.mqttDevicesCost = parseFloat(billableDevices);
 
 					var billableML = ml * billing.mlCost;
-					result.mlCost = parseFloat(billableML);
+					result.machineLearningCost = parseFloat(billableML);
 
 					var billableResouceDbSize = resourceDbSize * billing.dbResourceSizeCost;
 					result.resourceDatabaseCost = parseFloat(billableResouceDbSize);
