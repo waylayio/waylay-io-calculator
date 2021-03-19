@@ -139,12 +139,16 @@
 							const METRICS_PAYLOAD = 3 // average number of metrics in payload
 							const Q_POINTS = 200 // average number of metrics scanned in one API call
 							const PAYLOAD_BYTES = 100 // average payload size
+							const LOGS_CONST = 1000000 // 1 milion executions per GB
 							var reactiveFunctions = simReactive * messages * THR
 							var pollingFunctions = simPolling * simDevices * NUM_SENSORS * POLLING * 30
 							var byomlPFunctions = simBYOML * simDevices * NUM_SENSORS * POLLING * 30
 							var byomlTime = simBYOML * simDevices * POLLING * 30 * 0.5 / 60
 							var metricsScanned = simQuery * Q_POINTS * 30 * simDevices + simBYOML * simDevices * POLLING * 30 
 							var payloadDb = parseFloat(simDevices * PAYLOAD_BYTES * 100 / 1024 / 1024 / 1024).toFixed(3)
+							var taskLogs = parseFloat(simDevices * PAYLOAD_BYTES * 100 / 1024 / 1024 / 1024).toFixed(3)
+							var executions = reactiveFunctions + pollingFunctions + byomlPFunctions
+							var taskLogs = executions / LOGS_CONST 
 							var mqtt = $('input[type=radio][name=mqtt1]:checked').val();
 							if(mqtt == 'true'){
 									$('#devices').val(simDevices)
@@ -158,11 +162,12 @@
 							$('#messages').val(messages)
 							$('#payload-db').val(payloadDb) 
 							$('#metrics-stored').val(messages * METRICS_PAYLOAD)
-							$('#number-executions').val(reactiveFunctions + pollingFunctions + byomlPFunctions)
+							$('#number-executions').val(executions)
 							$('#executed-estimation-time').val(150)
 							$('#task-transitions').val(reactiveFunctions * 2 + pollingFunctions + byomlPFunctions) 
 							$('#ml').val(parseFloat(byomlTime).toFixed(1))
 							$('#metrics-scanned').val(metricsScanned)
+							$('#task-logs').val(parseFloat(taskLogs).toFixed(2)) 
 						}
 						update()
 				}
