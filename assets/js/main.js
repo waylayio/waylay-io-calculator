@@ -127,8 +127,8 @@
 						var simMessages = parseFloat($('#simul-messages').val()) || 0
 						var simReactive = parseFloat($('#simul-reactive').val()) || 0
 						var simPolling = parseFloat($('#simul-polling').val()) || 0
-						var simBYOML = $('#simul-byoml').val() || 0
-						var simQuery = $('#simul-query').val() || 0
+						var simBYOML = parseFloat($('#simul-byoml').val()) || 0
+						var simQuery = parseFloat($('#simul-query').val()) || 0
 						$('#assets').val(simDevices)
 
 						if(simDevices && simMessages) {
