@@ -206,10 +206,10 @@
 					<form method="post" action="#">
 						<div class="row uniform 50%">
 							<div class="12u$ myClass">
-								<input type="number" name="number-executions" id="number-executions" placeholder="Number of Executions"/>
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="number-executions" id="number-executions" placeholder="Number of Executions"/>
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="executed-estimation-time" id="executed-estimation-time" placeholder="Estimated Execution Time (ms)" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="executed-estimation-time" id="executed-estimation-time" placeholder="Estimated Execution Time (ms)" />
 							</div>
 							<div class="12u$ myClass">
 								<select name="memory" id="memory">
@@ -219,53 +219,53 @@
 								</select>
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="task-transitions" id="task-transitions" placeholder="Task transitions" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="task-transitions" id="task-transitions" placeholder="Task transitions" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="task-logs" id="task-logs" placeholder="Task log size [GB]" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="task-logs" id="task-logs" placeholder="Task log size [GB]" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="assets" id="assets" placeholder="Number of assets" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="assets" id="assets" placeholder="Number of assets" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="resource-db" id="resource-db" placeholder="Resource database size [GB]" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="resource-db" id="resource-db" placeholder="Resource database size [GB]" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="messages" id="messages" placeholder="Number of messages" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="messages" id="messages" placeholder="Number of messages" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="metrics" id="metrics-stored" placeholder="Number of metrics stored" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="metrics" id="metrics-stored" placeholder="Number of metrics stored" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="metrics-scanned" id="metrics-scanned" placeholder="Number of metrics scanned" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="metrics-scanned" id="metrics-scanned" placeholder="Number of metrics scanned" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="ml" id="ml" placeholder="ML minutes per month" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="ml" id="ml" placeholder="ML minutes per month" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="alarms" id="alarms" placeholder="Number of alarms per month" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="alarms" id="alarms" placeholder="Number of alarms per month" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="object-db" id="object-db" placeholder="Object storage size [GB]" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="object-db" id="object-db" placeholder="Object storage size [GB]" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="object-reads" id="object-reads" placeholder="Object reads [GB]" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="object-reads" id="object-reads" placeholder="Object reads [GB]" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="object-writes" id="object-writes" placeholder="Object writes [GB]" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="object-writes" id="object-writes" placeholder="Object writes [GB]" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="payload-db" id="payload-db" placeholder="Payload storage size [GB]" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="payload-db" id="payload-db" placeholder="Payload storage size [GB]" />
 							</div>
 							<div class="12u$ myClass">
-								<input type="number" name="payload-reads" id="payload-reads" placeholder="Payload reads" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="payload-reads" id="payload-reads" placeholder="Payload reads" />
 							</div>
 							<div class="12u$ myClass">
 								<input type="radio" name="mqtt" value="true"> <span class="label">True</span>
 								<input type="radio" name="mqtt" value="false" checked> <span class="label">False</span>
 							</div>				
 							<div class="12u$ myClass">
-								<input type="number" name="devices" id="devices" placeholder="Number of MQTT devices" />
+								<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="devices" id="devices" placeholder="Number of MQTT devices" />
 							</div>
 						</div>
 					</form>
