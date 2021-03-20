@@ -278,6 +278,7 @@
 				var result = calculateCost()
 				if (result.totalCost !== undefined) {
 						$('#total-cost').text(parseFloat(result.totalCost).toFixed(2))
+						$('#total-cost1').text(parseFloat(result.totalCost).toFixed(2))
 						$('#estimation tbody').empty();
 						$('#estimation').append('<tr><td>Item</td><td>Cost')
 						Object.keys(result).forEach(function(key){
