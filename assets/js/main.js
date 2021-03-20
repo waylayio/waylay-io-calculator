@@ -35,6 +35,7 @@
     enableFinishButton: false,
     stepsOrientation: 'vertical'
 			});
+			$( "#tabs" ).tabs();
 
 
 		// Disable animations/transitions until the page has loaded.
