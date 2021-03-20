@@ -141,12 +141,14 @@
 							const Q_POINTS = 200 // average number of metrics scanned in one API call
 							const PAYLOAD_BYTES = 100 // average payload size
 							const LOGS_CONST = 1000000 // 1 milion executions per GB
+							const RESOURCE_BYTES = 500 // average meta size
 							var reactiveFunctions = simReactive * messages * THR
 							var pollingFunctions = simPolling * simDevices * NUM_SENSORS * POLLING * 30
 							var byomlPFunctions = simBYOML * simDevices * NUM_SENSORS * POLLING * 30
 							var byomlTime = simBYOML * simDevices * POLLING * 30 * 0.5 / 60
 							var metricsScanned = simQuery * Q_POINTS * 30 * simDevices + simBYOML * simDevices * POLLING * 30 
 							var payloadDb = parseFloat(simDevices * PAYLOAD_BYTES * 100 / 1024 / 1024 / 1024).toFixed(3)
+							var resourceDb = parseFloat(simDevices * RESOURCE_BYTES / 1024 / 1024 / 1024).toFixed(3)
 							var taskLogs = parseFloat(simDevices * PAYLOAD_BYTES * 100 / 1024 / 1024 / 1024).toFixed(3)
 							var executions = reactiveFunctions + pollingFunctions + byomlPFunctions
 							var taskLogs = executions / LOGS_CONST 
@@ -162,6 +164,7 @@
 							}
 							$('#messages').val(messages)
 							$('#payload-db').val(payloadDb) 
+							$('#resource-db').val(resourceDb)
 							$('#metrics-stored').val(messages * METRICS_PAYLOAD)
 							$('#number-executions').val(executions)
 							$('#executed-estimation-time').val(150)
