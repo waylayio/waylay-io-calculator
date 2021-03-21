@@ -36,6 +36,7 @@
     stepsOrientation: 'vertical'
 			});
 			$( "#tabs" ).tabs();
+			$('#more-info').hide();
 
 
 		// Disable animations/transitions until the page has loaded.
@@ -172,6 +173,14 @@
 							$('#ml').val(parseFloat(byomlTime).toFixed(1))
 							$('#metrics-scanned').val(metricsScanned)
 							$('#task-logs').val(parseFloat(taskLogs).toFixed(2)) 
+						} else {
+							$('input[type=radio][name=mqtt]').filter('[value=true]').prop('checked', false)
+							$('input[type=radio][name=mqtt]').filter('[value=false]').prop('checked', true)						
+							$('#messages').val(0)
+							$('#payload-db').val(0) 
+							$('#resource-db').val(0)
+							$('#metrics-stored').val(0)
+							$('#metrics-scanned').val(0)
 						}
 						update()
 				}
@@ -280,6 +289,7 @@
 			function update() {
 				var result = calculateCost()
 				if (result.totalCost !== undefined) {
+					 $('#more-info').show();
 						$('#total-cost').text(parseFloat(result.totalCost).toFixed(2))
 						$('#total-cost1').text(parseFloat(result.totalCost).toFixed(2))
 						$('#estimation tbody').empty();
@@ -287,7 +297,9 @@
 						Object.keys(result).forEach(function(key){
 						if(key !== 'totalCost' && result[key])
 					  $('#estimation').append('<tr><td>'+ splitCamelCaseToString(key)+'</td><td>'+ '$' + parseFloat(result[key]).toFixed(2))
-					});
+					})
+				} else {
+					$('#more-info').hide();
 				}
 
 
