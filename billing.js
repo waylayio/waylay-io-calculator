@@ -7,7 +7,7 @@
   networkEgress: parseFloat(0.15/10000000),
   messages: parseFloat(0.3/1000000),
   assets: parseFloat(0.2/100),
-  alarms: parseFloat(1/10000),
+  alarms: parseFloat(1/1000),
   metricsScanned: parseFloat(0.06/100000),
   metricsStored: parseFloat(25/15000000),
   dbResourceSizeCost: 25,
