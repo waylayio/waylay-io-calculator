@@ -5,6 +5,13 @@
 */
 
 (function($) {
+		$.urlParam = function(name){
+	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	    if (results==null) {
+	       return null;
+	    }
+	    return decodeURI(results[1]) || 0;
+	}
 	function splitCamelCaseToString(s) {
 		    return s.split(/(?=[A-Z])/).map(function(p) {
 		        return p.charAt(0).toUpperCase() + p.slice(1);
@@ -38,6 +45,22 @@
 			$( "#tabs" ).tabs();
 			$('#more-info').hide();
 
+			if($.urlParam('wizard')){
+				$('#simul-messages').val($.urlParam('messages'))
+			 $('#simul-devices').val($.urlParam('devices'))
+				recalc()
+			} else {
+					$('#number-executions').val($.urlParam('functions'))
+					$('#executed-estimation-time').val($.urlParam('function_time') || 100)
+					$('#task-transitions').val($.urlParam('steps'))
+					$('#messages').val($.urlParam('messages'))
+			  $('#assets').val($.urlParam('devices'))
+			  $('#devices').val($.urlParam('devices'))
+			  $('#alarms').val($.urlParam('alarms'))
+					update()
+			}
+					
+			
 
 		// Disable animations/transitions until the page has loaded.
 			$body.addClass('is-loading');
