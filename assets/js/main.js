@@ -45,6 +45,13 @@
 			$( "#tabs" ).tabs();
 			$('#more-info').hide();
 
+			 $('#volume1').text('More than ' + discounts[0][0] + "$")
+    $('#discount1').text('' + discounts[0][1] * 100 + '%')
+    $('#volume2').text('More than ' + discounts[1][0] + "$")
+    $('#discount2').text('' + discounts[1][1] * 100 + '%')
+    $('#volume3').text('More than ' + discounts[2][0] + "$")
+    $('#discount3').text('' + discounts[2][1] * 100 + '%')
+
 			if($.urlParam('wizard')){
 				$('#simul-messages').val($.urlParam('messages'))
 			 $('#simul-devices').val($.urlParam('devices'))
