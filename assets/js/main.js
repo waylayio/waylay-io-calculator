@@ -288,7 +288,17 @@
 
 			function update() {
 				var result = calculateCost()
+				$('#discount').text('0%')
 				if (result.totalCost !== undefined) {
+					for (var i = 0; i < discounts.length; i++) {
+						  if(result.totalCost > discounts[i][0]) {
+						  	var discount = result.totalCost * discounts[i][1]
+						  	$('#discount').text('' + 100 * discounts[i][1] + '%')
+				 				result.totalCost = result.totalCost - discount
+				 			 break; //doesn't work for forEach
+				 			}
+					}	
+
 					 $('#more-info').show();
 						$('#total-cost').text(parseFloat(result.totalCost).toFixed(2))
 						$('#total-cost1').text(parseFloat(result.totalCost).toFixed(2))
