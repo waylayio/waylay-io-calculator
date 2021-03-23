@@ -39,10 +39,11 @@
 					<div id="tabs">
 						<ul>
 							<li><a href="#tabs-1">Simulation</a></li>
-							<li><a href="#tabs-2">Waylay platform</a></li>
+							<li><a href="#tabs-2">Use cases</a></li>
+							<li><a href="#tabs-3">Waylay platform</a></li>
 						</ul>
 						<div id="tabs-1">
-							<div id="wizard">
+							<div id="wizard1">
 								<h1>Devices</h1>
 								<div class="row uniform 50%">
 									<div class="12u$ myClass1">
@@ -84,6 +85,47 @@
 							</div>
 						</div>
 						<div id="tabs-2">
+							<div id="wizard2">
+								<h1>LPWAN</h1>
+								<div class="row uniform 50%">
+									<div class="12u$ myClass2">
+										<label>Number of devices</label>
+										<input type="number" name="simul-devices" id="useCase-lpwan-devices" placeholder="Number of devices"/>
+									</div>
+									<div class="12u$ myClass2">
+										<label>Number of reactive rules per device</label>
+										<input type="number" name="simul-messages" id="useCase-stream-rules" placeholder="Number of reactive rules per device"/>
+									</div>	
+									<div class="12u$ myClass2">
+										<label>Number of polling rules per device</label>
+										<input type="number" name="simul-messages" id="useCase-polling-rules" placeholder="Number of polling rules per device"/>
+									</div>	
+								</div>
+								<h1>OT Automation</h1>
+								<div class="row uniform 50%">
+									<div class="12u$ myClass2">
+										<label>Number of assets</label>
+										<input type="number" name="simul-reactive" id="useCase-assets" placeholder="Number of assets"/>
+									</div>
+									<div class="12u$ myClass2">
+										<label>Number of periodic tasks per device</label>
+										<input type="number" name="simul-polling" id="useCase-polling" placeholder="Periodic tasks per device"/>
+									</div>
+									<div class="12u$ myClass2">
+										<label>Average number of ML models per device (can be less than 1)</label>
+										<input type="number" name="simul-byoml" id="useCase-byoml" placeholder="ML models per device"/>
+									</div>
+								</div>
+								<h1>API Orchestration</h1>
+								<div class="row uniform 50%">
+									<div class="12u$ myClass2">
+										<label>Number of automation tasks</label>
+										<input type="number" name="simul-query" id="useCase-tasks" placeholder='"Zappier like automation tasks"'/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tabs-3">
 							<figure class="main-app">
 								<svg version="1.1" viewBox="0 0 1200 808" preserveAspectRatio="xMinYMin meet" >
 									<image width="1200" height="808" href="https://docs-io.waylay.io/assets/images/architecture/Waylay_architecture.png">

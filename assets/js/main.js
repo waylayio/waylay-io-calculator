@@ -36,10 +36,16 @@
 			$body = $('body'),
 			$header = $('#header');
 			// Initialize wizard
-			$("#wizard").steps({
+			$("#wizard1").steps({
     transitionEffect: "slideLeft",
     autoFocus: true,
     enableFinishButton: false,
+    stepsOrientation: 'vertical'
+			});
+			$("#wizard2").steps({
+    enableFinishButton: false, 
+    enablePagination: false, 
+    enableAllSteps: true,
     stepsOrientation: 'vertical'
 			});
 			$( "#tabs" ).tabs();
@@ -215,6 +221,58 @@
 						update()
 				}
 
+				function recalcUseCase() {
+						var lpwanDevices = parseFloat($('#useCase-lpwan-devices').val()) || 0
+						var simReactive = parseFloat($('#useCase-stream-rules').val()) || 0
+						var simPolling = parseFloat($('#useCase-polling-rules').val()) || 0
+						var simBYOML = parseFloat($('#useCase-byoml').val()) || 0
+						var simQuery = 10
+						var lpwanMessages = lpwanDevices * 4 * 24 * 30 //4 per hour per LPWAN
+
+						var ot_assets = parseFloat($('#useCase-assets').val()) || 0
+						var ot_polling = parseFloat($('#useCase-polling').val()) || 0
+						var ot_messages = (ot_assets * 86400 * 24 * 30) // every second new message
+						simPolling += ot_polling
+						simDevices = ot_assets + lpwanDevices
+
+						var api_tasks = parseFloat($('#useCase-tasks').val()) || 0
+
+						const messages = lpwanMessages + ot_messages
+						const THR = 0.15  //how often it would trigger
+						const NUM_SENSORS = 3 // average number of polling sensors in one task
+						const POLLING = 96 //15 minutes polling per day
+						const API_POLLING = 24 //Once an hour
+						const METRICS_PAYLOAD = 3 // average number of metrics in payload
+						const PAYLOAD_BYTES = 100 // average payload size
+						const LOGS_CONST = 1000000 // 1 milion executions per GB
+						const RESOURCE_BYTES = 500 // average meta size
+						const Q_POINTS = 200 // average number of metrics scanned in one API call
+
+						var reactiveFunctions = simReactive * messages * THR
+						var webscripts = lpwanMessages
+						var pollingFunctions = simPolling * simDevices * NUM_SENSORS * POLLING * 30 + api_tasks * API_POLLING * 30 
+						var byomlPFunctions = simBYOML * simDevices * NUM_SENSORS * POLLING * 30
+						var byomlTime = simBYOML * simDevices * POLLING * 30 * 0.5 / 60
+						var metricsScanned = simQuery * Q_POINTS * 30 * simDevices + simBYOML * simDevices * POLLING * 30 
+						var payloadDb = parseFloat(simDevices * PAYLOAD_BYTES * 100 / 1024 / 1024 / 1024).toFixed(3)
+						var resourceDb = parseFloat(simDevices * RESOURCE_BYTES / 1024 / 1024 / 1024).toFixed(3)
+						var taskLogs = parseFloat(simDevices * PAYLOAD_BYTES * 100 / 1024 / 1024 / 1024).toFixed(3)
+						var executions = reactiveFunctions + pollingFunctions + byomlPFunctions
+						var taskLogs = executions / LOGS_CONST 
+						$('#assets').val(simDevices)
+						$('#messages').val(messages)
+						$('#payload-db').val(payloadDb) 
+						$('#resource-db').val(resourceDb)
+						$('#metrics-stored').val(messages * METRICS_PAYLOAD)
+						$('#number-executions').val(executions + webscripts)
+						$('#executed-estimation-time').val(150)
+						$('#task-transitions').val(reactiveFunctions + pollingFunctions + byomlPFunctions) 
+						$('#ml').val(parseFloat(byomlTime).toFixed(1))
+						$('#metrics-scanned').val(metricsScanned)
+						$('#task-logs').val(parseFloat(taskLogs).toFixed(2)) 
+						update()
+				}
+
 				function calculateCost() {
 					var result = {
 							totalCost: 0
@@ -350,6 +408,10 @@
 
 			$('.myClass1').on('input propertychange paste', function(result, value) {
 				recalc()
+			});
+
+			$('.myClass2').on('input propertychange paste', function(result, value) {
+				recalcUseCase()
 			});
 	});
 
