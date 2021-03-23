@@ -1,4 +1,4 @@
- var billing = {
+ const billing = {
   tenant: {
     price: 5,
     unit: "fixed per month",
@@ -106,8 +106,11 @@
   }
  }
 
- var discounts = [
-  [30000, 0.1],
-  [20000, 0.075],
-  [10000, 0.05]
+ const discounts = [
+  [15000, 0.1],
+  [10000, 0.075],
+  [5000, 0.05]
  ]
+
+ const ENTERPRISE_THR = 1666
+

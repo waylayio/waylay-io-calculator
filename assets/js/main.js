@@ -35,6 +35,10 @@
 		 var $window = $(window),
 			$body = $('body'),
 			$header = $('#header');
+			// this initializes the dialog (and uses some common options that I do)
+	  $("#dialog").dialog({
+	    autoOpen : false, modal : true, show : "blind", hide : "blind"
+	  });
 			// Initialize wizard
 			$("#wizard1").steps({
     transitionEffect: "slideLeft",
@@ -376,6 +380,9 @@
 
 			function update() {
 				var result = calculateCost()
+				if(result.totalCost > ENTERPRISE_THR) {
+					$("#dialog").dialog("open")
+				}
 				$('#discount').text('0%')
 				if (result.totalCost !== undefined) {
 					for (var i = 0; i < discounts.length; i++) {
