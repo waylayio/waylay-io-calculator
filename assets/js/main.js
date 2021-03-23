@@ -301,73 +301,73 @@
 					var mqtt = $('input[type=radio][name=mqtt]:checked').val();
 
 					if(mqtt == 'true'){
-							result.mqttBrokerCost = parseFloat(billing.mqttBroker)
+							result.mqttBrokerCost = parseFloat(billing.mqttBrokerprice.price)
 					} else {
 							devices = 0
 							$('#devices').val('0')
 					}
 
-					result.tenantCost = billing.tenant
+					result.tenantCost = billing.tenant.price
 
 					var billableRequests = numberOfExecutions;
-					var requestCost = billableRequests * (billing.requestCharge);
+					var requestCost = billableRequests * (billing.requestCharge.price);
 					result.executionRequestCost = parseFloat(requestCost);
 			
 					var totalComputeInSeconds = numberOfExecutions * (executedEstimationTime / 1000);
 					var totalComputeGBSeconds = totalComputeInSeconds * (memory/1024);
 
-					var billableCompute = totalComputeGBSeconds * billing.chargeGBSecond;
+					var billableCompute = totalComputeGBSeconds * billing.chargeGbSecond.price;
 					result.executionComputeCost = parseFloat(billableCompute);
 			
-					var billableTaskTransitions = parseFloat(taskTransitions) * billing.taskTransitions
+					var billableTaskTransitions = parseFloat(taskTransitions) * billing.taskTransitions.price
 					result.taskTransitionsCost = parseFloat(billableTaskTransitions)
 
-					var billableTaskLogs = parseFloat(taskLogs) * billing.taskLogCost
+					var billableTaskLogs = parseFloat(taskLogs) * billing.taskLogCost.price
 					result.taskLogCost = parseFloat(billableTaskLogs)
 
-					var billableMessages = messages * billing.messages;
+					var billableMessages = messages * billing.messages.price
 					result.messagesCost = parseFloat(billableMessages);
 			
-					var billableAlarms = alarms * billing.alarms;
+					var billableAlarms = alarms * billing.alarms.price
 					result.alarmsCost = parseFloat(billableAlarms);
 			
-					var billableAssets = assets * billing.assets;
+					var billableAssets = assets * billing.assets.price
 					result.assetsCost = parseFloat(billableAssets);
 
-					var billableDevices = devices * billing.mqttDevice;
+					var billableDevices = devices * billing.mqttDevice.price
 					result.mqttDevicesCost = parseFloat(billableDevices);
 
-					var billableML = ml * billing.mlCost;
+					var billableML = ml * billing.mlCost.price
 					result.machineLearningCost = parseFloat(billableML);
 
-					var billableResouceDbSize = resourceDbSize * billing.dbResourceSizeCost;
+					var billableResouceDbSize = resourceDbSize * billing.dbResourceSizeCost.price
 					result.resourceDatabaseCost = parseFloat(billableResouceDbSize);
 
-					var billableObjectDbSize = objectDbSize * billing.objectDbSizeCost;
+					var billableObjectDbSize = objectDbSize * billing.objectDbSizeCost.price
 					result.objectSizeCost = parseFloat(billableObjectDbSize);
 
-					var billableObjectReads = objectReads * billing.objectReads;
+					var billableObjectReads = objectReads * billing.objectReads.price
 					result.objectReadsCost = parseFloat(billableObjectReads);
 
-					var billableObjectWrites = objectWrites * billing.objectWrites;
+					var billableObjectWrites = objectWrites * billing.objectWrites.price
 					result.objectWritesCost = parseFloat(billableObjectWrites);
 
-					var billableMetricsStored = metricsStored * billing.metricsStored;
+					var billableMetricsStored = metricsStored * billing.metricsStored.price
 					result.metricsStoredCost = parseFloat(billableMetricsStored);
 
-					var billableMetricsScanned = metricsScanned * billing.metricsScanned
+					var billableMetricsScanned = metricsScanned * billing.metricsScanned.price
 					result.metricsScannedCost = parseFloat(billableMetricsScanned);
 
-					var billablePayloadDbSize = payloadDbSize * billing.payloadDbSizeCost;
+					var billablePayloadDbSize = payloadDbSize * billing.payloadDbSizeCost.price
 					result.payloadDatabaseCost = parseFloat(billablePayloadDbSize);
 
-					var billablePayloadReads = payloadReads * billing.payloadReads;
+					var billablePayloadReads = payloadReads * billing.payloadReads.price
 					result.payloadReadsCost = parseFloat(billablePayloadReads);
 
 					result.totalCost = Object.values(result).reduce((a, b) => a + b);
-					if (result.totalCost > billing.coupon) {
-						 result.totalCost -= parseFloat(billing.coupon);
-					} else if (result.totalCost < billing.coupon) {
+					if (result.totalCost > billing.coupon.price) {
+						 result.totalCost -= parseFloat(billing.coupon.price);
+					} else if (result.totalCost < billing.coupon.price) {
 						 result.totalCost = 0
 					}
 
@@ -391,10 +391,15 @@
 						$('#total-cost').text(parseFloat(result.totalCost).toFixed(2))
 						$('#total-cost1').text(parseFloat(result.totalCost).toFixed(2))
 						$('#estimation tbody').empty();
-						$('#estimation').append('<tr><td>Item</td><td>Cost')
+						$('#estimation').append('<tr><td>Item</td><td>Cost</td></tr>')
 						Object.keys(result).forEach(function(key){
 						if(key !== 'totalCost' && result[key])
-					  $('#estimation').append('<tr><td>'+ splitCamelCaseToString(key)+'</td><td>'+ '$' + parseFloat(result[key]).toFixed(2))
+					  $('#estimation').append('<tr><td>'+ splitCamelCaseToString(key)+'</td><td>'+ '$' + parseFloat(result[key]).toFixed(2) + '</td></tr>')
+					})
+						$('#billing tbody').empty();
+						$('#billing').append('<tr><td>Item</td><td>Cost')
+						Object.keys(billing).forEach(function(key){
+						 $('#billing').append('<tr><td>'+ billing[key].metricName + ' [' + billing[key].unit + '] </td><td> $'+  billing[key].price + '</td></tr>')
 					})
 				} else {
 					$('#more-info').hide();
