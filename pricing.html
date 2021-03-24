@@ -72,18 +72,18 @@
    </p>
    <h3>TS write metrics</h3>
    <p>
-    The cost of writing metrics in the time series database is 25$ per 15 million data points. For instance, if the message payload has 3 metrics, one message that is stored will result in 3 data points written.<br/> 
+    If the message payload has 3 metrics, one message that is stored will result in 3 data points written. The cost of writing metrics in the time series database is 1$ per 10 million data points.<br/> 
     Example:
-    If you have 100 devices, each sending data every 15 minutes, and each payload has three metrics, in one month you will be paying:
-    100 devices * 30 days * 96 messages per day * 3 metrics = 864000 data points. Price of time series storage would be 864000 * 25/15000000 = 1.45$
+    If you have 100 devices, each sending data every 15 minutes, and each payload has three metrics, in one month you will be stiring:
+    100 devices * 30 days * 96 messages per day * 3 metrics = 864000 data points. Price of time series storage would be 864000 * 1/10000000 = 0.086$
    </p>
    <h3>TS read scan</h3>
    <p>
-    Every time you fetch data from the time series database (over UI or REST), Waylay meters the number of metrics scanned in the time series database. Please note that this is not the same as the number of returned metrics, in case your query uses the aggregates and grouping in your query.The cost is $0.06 per 100,000 metrics scanned.<br/> 
+    Every time you fetch data from the time series database (over UI or REST), Waylay meters the number of metrics scanned in the time series database. Please note that this is not the same as the number of returned metrics, in case your query uses the aggregates and grouping in your query.The cost is 1$ per 100 million metrics scanned.<br/> 
     Example: 
     If you ask for the temperature of one sensor over 1 week, and data is stored every 15 minutes, irrespectively whether  the query asks for all data or the aggregate, the read scan will be metered as: 7 days * 96 points = 672<br/> 
     If you call this query 10 times a day, for 100 sensors, that would be in one month:<br/> 
-    100 sensors * 30 days * 10 times a day * 672 read scans = 20160000 scans and the total price would be 20160000 * 0.06$/100000 = 12.1$
+    100 sensors * 30 days * 10 times a day * 672 read scans = 20160000 scans and the total price would be 20160000 * 1/100000000 = 0.2$
    </p>
   </div> 
   <div id="assets">  
