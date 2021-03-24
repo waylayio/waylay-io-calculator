@@ -409,7 +409,7 @@
 						$('#billing tbody').empty();
 						$('#billing').append('<tr><td>Item</td><td>Cost')
 						Object.keys(billing).forEach(function(key){
-						 $('#billing').append('<tr><td>'+ billing[key].metricName + ' [' + billing[key].unit + '] </td><td> $'+ billing[key].price.toPrecision(2)+ '</td></tr>')
+						 $('#billing').append('<tr><td>'+ billing[key].metricName + ' [' + billing[key].unit + '] </td><td> $'+ billing[key].price + '</td></tr>')
 					})
 				} else {
 					$('#more-info').hide();
