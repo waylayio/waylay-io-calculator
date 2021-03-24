@@ -372,11 +372,11 @@
 					result.payloadReadsCost = parseFloat(billablePayloadReads);
 
 					result.totalCost = Object.values(result).reduce((a, b) => a + b);
-					if (result.totalCost > billing.coupon.price) {
+					/*if (result.totalCost > billing.coupon.price) {
 						 result.totalCost -= parseFloat(billing.coupon.price);
 					} else if (result.totalCost < billing.coupon.price) {
 						 result.totalCost = 0
-					}
+					}*/
 
 					return result;
 				}

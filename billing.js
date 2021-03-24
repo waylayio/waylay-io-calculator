@@ -99,10 +99,20 @@
     unit: "device",
     metricName: "MQTT Devices"
   },
+  vault: {
+    price: 2,
+    unit: "feature",
+    metricName: "Vault service"
+  },
+  converter: {
+    price: 1/1000000,
+    unit: "requests",
+    metricName: "Payload converter"
+  },
   coupon:  {
-    price: 0,
-    unit: "coupon",
-    metricName: "Coupon"
+    price: 200,
+    unit: "valid for 3 months",
+    metricName: "Free coupon"
   }
  }
 
