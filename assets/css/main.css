@@ -8,6 +8,13 @@
 */
 
 /* Reset */
+	.sales ul {
+  list-style: none;
+}
+	.sales li:before {
+			 content: '✓'; 
+	}
+
 
 	label-wizard {
 		color: #787878;
@@ -2120,7 +2127,7 @@
 		padding-left: 1em;
 	}
 
-		ul li {
+	ul li {
 			padding-left: 0.5em;
 		}
 

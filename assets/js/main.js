@@ -35,9 +35,12 @@
 		 var $window = $(window),
 			$body = $('body'),
 			$header = $('#header');
-			// this initializes the dialog (and uses some common options that I do)
 	  $("#dialog").dialog({
-	    autoOpen : false, modal : true, show : "blind", hide : "blind"
+	    autoOpen : false, 
+	    modal : true, 
+	    show : "blind", 
+	    hide : "blind",
+	    minWidth: 600
 	  });
 			// Initialize wizard
 			$("#wizard1").steps({
@@ -406,7 +409,7 @@
 						$('#billing tbody').empty();
 						$('#billing').append('<tr><td>Item</td><td>Cost')
 						Object.keys(billing).forEach(function(key){
-						 $('#billing').append('<tr><td>'+ billing[key].metricName + ' [' + billing[key].unit + '] </td><td> $'+  billing[key].price + '</td></tr>')
+						 $('#billing').append('<tr><td>'+ billing[key].metricName + ' [' + billing[key].unit + '] </td><td> $'+ billing[key].price.toPrecision(2)+ '</td></tr>')
 					})
 				} else {
 					$('#more-info').hide();
