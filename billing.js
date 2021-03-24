@@ -60,7 +60,7 @@
     metricName: "Resource database size"
   },
   objectDbSizeCost: {
-    price: 25,
+    price: 0.1,
     unit: "GB",
     metricName: "Object storage database size"
   },
