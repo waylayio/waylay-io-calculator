@@ -42,13 +42,14 @@
 	    hide : "blind",
 	    minWidth: 600
 	  });
-			// Initialize wizard
 			$("#wizard1").steps({
     transitionEffect: "slideLeft",
     autoFocus: true,
-    enableFinishButton: false,
-    stepsOrientation: 'vertical'
-			});
+    stepsOrientation: 'vertical',
+    onFinished: function (event, currentIndex) {
+    	window.location.href = "#costtable"
+  		}
+  	});
 			$("#wizard2").steps({
     enableFinishButton: false, 
     enablePagination: false, 
