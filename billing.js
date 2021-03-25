@@ -45,12 +45,12 @@
     metricName: "Alarms"
   },
   metricsScanned: {
-    price: parseFloat(0.01/5000000),
+    price: parseFloat(1/500000000),
     unit: "metrics",
     metricName: "Metrics scanned"
   },
   metricsStored: {
-    price: parseFloat(0.1/1000000),
+    price: parseFloat(1/10000000),
     unit: "metrics",
     metricName: "Metrics stored"
   },
