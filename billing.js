@@ -50,7 +50,7 @@
     metricName: "Metrics scanned"
   },
   metricsStored: {
-    price: parseFloat(1/10000000),
+    price: parseFloat(5/10000000),
     unit: "metrics",
     metricName: "Metrics stored"
   },
