@@ -257,7 +257,7 @@
 						const Q_POINTS = 200 // average number of metrics scanned in one API call
 
 						var reactiveFunctions = simReactive * messages * THR
-						var webscripts = lpwanMessages
+						var webscripts = lpwanMessages * 2 //transformers too
 						var pollingFunctions = simPolling * simDevices * NUM_SENSORS * POLLING * 30 + api_tasks * API_POLLING * 30 
 						var byomlPFunctions = simBYOML * simDevices * NUM_SENSORS * POLLING * 30
 						var byomlTime = simBYOML * simDevices * POLLING * 30 * 0.5 / 60
