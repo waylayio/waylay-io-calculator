@@ -176,7 +176,17 @@
 						var simBYOML = parseFloat($('#simul-byoml').val()) || 0
 						var simQuery = parseFloat($('#simul-query').val()) || 0
 						$('#assets').val(simDevices)
-
+						var mqtt = $('input[type=radio][name=mqtt1]:checked').val();
+						if(mqtt == 'true'){
+								$('#devices').val(simDevices)
+								$('input[type=radio][name=mqtt]').filter('[value=true]').prop('checked', true)
+								$('input[type=radio][name=mqtt]').filter('[value=false]').prop('checked', false)
+						} else {
+							$('#devices').val('0')
+								$('input[type=radio][name=mqtt]').filter('[value=true]').prop('checked', false)
+								$('input[type=radio][name=mqtt]').filter('[value=false]').prop('checked', true)
+						}
+				
 						if(simDevices && simMessages) {
 							const messages = simDevices*simMessages * 24 * 30
 							const THR = 0.15  //how often it would trigger
@@ -197,16 +207,6 @@
 							var taskLogs = parseFloat(simDevices * PAYLOAD_BYTES * 100 / 1024 / 1024 / 1024).toFixed(3)
 							var executions = reactiveFunctions + pollingFunctions + byomlPFunctions
 							var taskLogs = executions / LOGS_CONST 
-							var mqtt = $('input[type=radio][name=mqtt1]:checked').val();
-							if(mqtt == 'true'){
-									$('#devices').val(simDevices)
-									$('input[type=radio][name=mqtt]').filter('[value=true]').prop('checked', true)
-									$('input[type=radio][name=mqtt]').filter('[value=false]').prop('checked', false)
-							} else {
-								$('#devices').val('0')
-									$('input[type=radio][name=mqtt]').filter('[value=true]').prop('checked', false)
-									$('input[type=radio][name=mqtt]').filter('[value=false]').prop('checked', true)
-							}
 							$('#messages').val(messages)
 							$('#payload-db').val(payloadDb) 
 							$('#resource-db').val(resourceDb)
