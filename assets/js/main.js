@@ -218,8 +218,6 @@
 							$('#metrics-scanned').val(metricsScanned)
 							$('#task-logs').val(parseFloat(taskLogs).toFixed(2)) 
 						} else {
-							$('input[type=radio][name=mqtt]').filter('[value=true]').prop('checked', false)
-							$('input[type=radio][name=mqtt]').filter('[value=false]').prop('checked', true)						
 							$('#messages').val(0)
 							$('#payload-db').val(0) 
 							$('#resource-db').val(0)
