@@ -122,5 +122,5 @@
   [5000, 0.05]
  ]
 
- const ENTERPRISE_THR = 1666
+ const ENTERPRISE_THR = 16666
 
