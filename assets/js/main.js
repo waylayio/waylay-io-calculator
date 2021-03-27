@@ -309,7 +309,7 @@
 					var mqtt = $('input[type=radio][name=mqtt]:checked').val();
 
 					if(mqtt == 'true'){
-							result.mqttBrokerCost = parseFloat(billing.mqttBrokerprice.price)
+							result.mqttBrokerCost = parseFloat(billing.mqttBroker.price)
 					} else {
 							devices = 0
 							$('#devices').val('0')
