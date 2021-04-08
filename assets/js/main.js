@@ -78,6 +78,10 @@
 			  $('#assets').val($.urlParam('devices'))
 			  $('#devices').val($.urlParam('devices'))
 			  $('#alarms').val($.urlParam('alarms'))
+			  $('#task-logs').val($.urlParam('logs'))
+			  $('#metrics-stored').val($.urlParam('metrics_stored'))
+			  $('#metrics-scanned').val($.urlParam('metrics_scanned'))
+			  $('#ml').val($.urlParam('ml'))
 					update()
 			}
 					
