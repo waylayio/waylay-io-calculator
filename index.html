@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Wayay Cost Calculator</title>
+	<title>Waylay Cost Calculator</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="Pricing calculator for Wayay IO">
-	<meta name="keywords" content="Wayay Cost Calculator, Cost, Pricing, Calculator">
+	<meta name="description" content="Pricing calculator for Waylay IO">
+	<meta name="keywords" content="Waylay Cost Calculator, Cost, Pricing, Calculator">
 	<meta name="robots" content="index,follow">
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/jquery.steps.css" />
@@ -24,7 +24,7 @@
 	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 	ga('create', 'UA-50877508-6', 'auto');
-	ga('send', 'pageview'); 
+	ga('send', 'pageview');
 
 	</script>
 </head>
@@ -39,7 +39,7 @@
 	</header>
 	<div class="sales" id="dialog" title="Waylay Enterprise">
 		<span>You are reaching the volumes that will be better served by our Enterprise offering, which includes:</span><hr style="margin-top: 3px;margin-bottom: 7px"/>
-		<ul > 
+		<ul >
 			<li>Waylay hosted or OEM</li>
 			<li>Customized Environment</li>
 			<li>Greater discounts, predictable bill</li>
@@ -80,7 +80,7 @@
 								<label>Using Waylay MQTT Broker?</label><br>
 								<input type="radio" name="mqtt1" value="true" style="display: inline;"> <span class="label">True</span>
 								<input type="radio" name="mqtt1" value="false" checked style="display: inline;"> <span class="label">False</span>
-							</div>			
+							</div>
 						</div>
 						<h1>Automation</h1>
 						<div class="row uniform 50%">
@@ -119,11 +119,11 @@
 							<div class="12u$ myClass2">
 								<label>Number of reactive rules per device</label>
 								<input type="number" name="simul-messages" id="useCase-stream-rules" placeholder="Number of reactive rules per device"/>
-							</div>	
+							</div>
 							<div class="12u$ myClass2">
 								<label>Number of polling rules per device</label>
 								<input type="number" name="simul-messages" id="useCase-polling-rules" placeholder="Number of polling rules per device"/>
-							</div>	
+							</div>
 							<label>˚Message rate: 4 messages per hour.</label>
 						</div>
 						<h1>OT Automation</h1>
@@ -332,7 +332,7 @@
 						<div class="12u$ myClass">
 							<input type="radio" name="mqtt" value="true"> <span class="label">True</span>
 							<input type="radio" name="mqtt" value="false" checked> <span class="label">False</span>
-						</div>				
+						</div>
 						<div class="12u$ myClass">
 							<input type="number" min="0" onkeyup="if(this.value<0){this.value=0}" name="devices" id="devices" placeholder="Number of MQTT devices" />
 						</div>
@@ -417,16 +417,16 @@
 										<li>
 											<h3 class="icon fa-connectdevelop"><span class="label">Memory Size</span></h3>
 											<a href="#">MQTT Broker</a>
-										</li>	
+										</li>
 										<li>
 											<h3 class="icon fa-cog"><span class="label">Number of MQTT devices</span></h3>
 											<a href="#">Number of MQTT devices</a>
-										</li>					
+										</li>
 									</ul>
 								</div>
 							</div>
 							<hr/>
-							<h2 id="costtable">Estimated monthly cost</h2>									
+							<h2 id="costtable">Estimated monthly cost</h2>
 							<table>
 								<tr>
 									<th>Total</th>
@@ -446,7 +446,7 @@
 							</table>
 							<h2 id="pricetable">Price table</h1>
 								<table id="billing">
-								</table>  
+								</table>
 								<h2>Volume Discounts</h1>
 									<table>
 										<tr>
@@ -465,7 +465,7 @@
 											<td><span id="volume3">-</span></td>
 											<td><span id="discount3">-</span></td>
 										</tr>
-									</table>  
+									</table>
 								</section>
 								<section id="metrics_explained">
 									<h1>Waylay metrics explained</h1>
@@ -475,7 +475,7 @@
 									</div>
 									<div id="p_functions">
 										<h2>Functions</h2>
-										Function is a service that runs your code without provisioning or managing servers. You pay only for the compute time that you consume—there is no charge when your code is not running. When you use functions, you pay for two different things: the number of requests and duration. The price for duration depends on the amount of memory you allocate to your function and it is expressed in GB-second. In the current release, memory allocation is fixed to 128M, and you can’t change it. 
+										Function is a service that runs your code without provisioning or managing servers. You pay only for the compute time that you consume—there is no charge when your code is not running. When you use functions, you pay for two different things: the number of requests and duration. The price for duration depends on the amount of memory you allocate to your function and it is expressed in GB-second. In the current release, memory allocation is fixed to 128M, and you can’t change it.
 									</p>
 									<p>If you use Waylay native functions, such as Function sensor, you are not paying for any duration, only for the request, since this function is executed within rules engine - in about 0.2 ns.</p>
 									<h3>Example</h3>
@@ -486,7 +486,7 @@
 										<br/>
 										Total compute (seconds) = 10M * (0.1sec) = 1,000,000 seconds
 										<br/>
-										Total compute (GB-s) = 1,000,000 * 128MB/1024 = 125,000 GB-s 
+										Total compute (GB-s) = 1,000,000 * 128MB/1024 = 125,000 GB-s
 										<br/>
 
 										Total price: 10$ + (125000 * $0.00002) = 10$ + 2.5$ = 12.5$
@@ -496,7 +496,7 @@
 									<h2>Task transitions</h2>
 									<p>
 										Task transitions occur every time a task invocation infers that any other node needs to be executed as the result of a previous node execution.    <br/>
-										However, if the task has only one sensor, and that task runs periodically or as the cron expression, then the number of steps in that task will always be zero. Even if that task has multiple sensors, but these sensors are not connected, the number of steps for such a task will always be zero. 
+										However, if the task has only one sensor, and that task runs periodically or as the cron expression, then the number of steps in that task will always be zero. Even if that task has multiple sensors, but these sensors are not connected, the number of steps for such a task will always be zero.
 									</p>
 									<p>
 										Example, if we have a reactive task that sends an email every time the threshold is crossed (for instance temperature reading for a sensor) and if that threshold is crossed on average twice a day, then the total number of task transitions per month will be: <br/>
@@ -508,51 +508,51 @@
 								<div id="p_network">
 									<h2>Network egress</h2>
 									<p>
-										Network egress is the outbound data transfer and it is priced at 0.15$ per GB. Inbound traffic is free. 
+										Network egress is the outbound data transfer and it is priced at 0.15$ per GB. Inbound traffic is free.
 									</p>
-								</div> 
+								</div>
 								<div id="p_messages">
 									<h2>Ingested Messages</h2>
 									The number of stream messages (payloads) entering in our system, regardless whether they are later stored or not. If stored, they will be present both in payload database, as well as in the metrics database, providing they come in the proper format. <br/>
 									Ingested message is a payload that arrives at the Broker. The cost is 0.3$ per million messages.
-								</div> 
+								</div>
 								<div id="p_converter">
 									<h2>Converter calls</h2>
 									<p>
-										Each message payload can be processed by the velocity template prior to being sent to the Broker. The cost of converter calls is 1$ per million messages. 
+										Each message payload can be processed by the velocity template prior to being sent to the Broker. The cost of converter calls is 1$ per million messages.
 									</p>
-								</div> 
-								<div id="p_time-series"> 
+								</div>
+								<div id="p_time-series">
 									<h2>Time series database metrics</h2>
 									<p>
 										Time series database will not be metered in the first release. Please note that the cost will be 25$ per 1GB per month.
 									</p>
 									<h3>TS write metrics</h3>
 									<p>
-										If the message payload has 3 metrics, one message that is stored will result in 3 data points written. The cost of writing metrics in the time series database is 5$ per 10 million data points.<br/> 
+										If the message payload has 3 metrics, one message that is stored will result in 3 data points written. The cost of writing metrics in the time series database is 5$ per 10 million data points.<br/>
 										Example:
 										If you have 100 devices, each sending data every 15 minutes, and each payload has three metrics, in one month you will be stiring:
 										100 devices * 30 days * 96 messages per day * 3 metrics = 864000 data points. Price of time series storage would be 864000 * 5/10000000 = 0.432$
 									</p>
 									<h3>TS read scan</h3>
 									<p>
-										Every time you fetch data from the time series database (over UI or REST), Waylay meters the number of metrics scanned in the time series database. Please note that this is not the same as the number of returned metrics, in case your query uses the aggregates and grouping in your query.The cost is 1$ per 500 million metrics scanned.<br/> 
-										Example: 
-										If you ask for the temperature of one sensor over 1 week, and data is stored every 15 minutes, irrespectively whether  the query asks for all data or the aggregate, the read scan will be metered as: 7 days * 96 points = 672<br/> 
-										If you call this query 10 times a day, for 100 sensors, that would be in one month:<br/> 
+										Every time you fetch data from the time series database (over UI or REST), Waylay meters the number of metrics scanned in the time series database. Please note that this is not the same as the number of returned metrics, in case your query uses the aggregates and grouping in your query.The cost is 1$ per 500 million metrics scanned.<br/>
+										Example:
+										If you ask for the temperature of one sensor over 1 week, and data is stored every 15 minutes, irrespectively whether  the query asks for all data or the aggregate, the read scan will be metered as: 7 days * 96 points = 672<br/>
+										If you call this query 10 times a day, for 100 sensors, that would be in one month:<br/>
 										100 sensors * 30 days * 10 times a day * 672 read scans = 20160000 scans and the total price would be 20160000 * 1/500000000 = 0.04$
 									</p>
-								</div> 
-								<div id="p_assets">  
+								</div>
+								<div id="p_assets">
 									<h2>Assets</h2>
 									<p>Asset is a resource, resource type or a resource constraint. The price is 0.2$ per 100 assets and it is metered at the end of the calendar month.</p>
-								</div> 
+								</div>
 								<div id="p_payload">
 									<h2>Message(payload) database</h2>
 									<p>
-										Message database holds up to 100 messages per resource. 
+										Message database holds up to 100 messages per resource.
 										<h3>Message database size</h3>
-										The cost of the database is 25$ per GB per month, measured at the end of the calendar month. 
+										The cost of the database is 25$ per GB per month, measured at the end of the calendar month.
 									</p>
 									<h3>Message Read Scan</h3>
 									<p>
@@ -562,12 +562,12 @@
 								<div id="p_resource">
 									<h2>Resource database</h2>
 									<p>
-										Resource database holds metadata for resources (and all change logs), resource types and resource constraints. 
+										Resource database holds metadata for resources (and all change logs), resource types and resource constraints.
 									</p>
 									<h3>Resource database size</h3>
 									<p>
 										The cost of the database is 25$ per GB per month, measured at the end of the calendar month.
-									</p> 
+									</p>
 									<h3>Resource read scan</h3>
 									<p>
 										Not metered for the moment.
