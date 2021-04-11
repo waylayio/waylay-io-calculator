@@ -70,11 +70,11 @@
 						<div class="row uniform 50%">
 							<div class="12u$ myClass1">
 								<label>Number of devices</label>
-								<input type="number" name="simul-devices" id="simul-devices" placeholder="Number of devices"/>
+								<input type="number" name="simul-devices" id="simul-devices" placeholder="Number of devices" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<div class="12u$ myClass1">
 								<label>Number of messages per device per hour</label>
-								<input type="number" name="simul-messages" id="simul-messages" placeholder="Number of messages per device per hour"/>
+								<input type="number" name="simul-messages" id="simul-messages" placeholder="Number of messages per device per hour" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<div class="12u$ myClass1" >
 								<label>Using Waylay MQTT Broker?</label><br>
@@ -86,11 +86,11 @@
 						<div class="row uniform 50%">
 							<div class="12u$ myClass1">
 								<label>˚Stream based (threshold crossing) tasks per device</label>
-								<input type="number" name="simul-reactive" id="simul-reactive" placeholder="Rules triggered on stream threshold crossing"/>
+								<input type="number" name="simul-reactive" id="simul-reactive" placeholder="Rules triggered on stream threshold crossing" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<div class="12u$ myClass1">
 								<label>Number of periodic tasks per device</label>
-								<input type="number" name="simul-polling" id="simul-polling" placeholder="Periodic tasks per device"/>
+								<input type="number" name="simul-polling" id="simul-polling" placeholder="Periodic tasks per device" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<label>˚ 15% of stream messages trigger threshold crossing. Polling tasks run every 15 minutes.</label>
 						</div>
@@ -98,11 +98,11 @@
 						<div class="row uniform 50%">
 							<div class="12u$ myClass1">
 								<label>Average number of ML models per device (can be less than 1)</label>
-								<input type="number" name="simul-byoml" id="simul-byoml" placeholder="ML models per device"/>
+								<input type="number" name="simul-byoml" id="simul-byoml" placeholder="ML models per device" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<div class="12u$ myClass1">
 								<label>Queries per device per day˚</label>
-								<input type="number" name="simul-query" id="simul-query" placeholder="Queries per device per day"/>
+								<input type="number" name="simul-query" id="simul-query" placeholder="Queries per device per day" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<label>˚On Average 200 data points per query</label>
 						</div>
@@ -114,15 +114,15 @@
 						<div class="row uniform 50%">
 							<div class="12u$ myClass2">
 								<label>Number of devices˚</label>
-								<input type="number" name="simul-devices" id="useCase-lpwan-devices" placeholder="Number of devices"/>
+								<input type="number" name="simul-devices" id="useCase-lpwan-devices" placeholder="Number of devices" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<div class="12u$ myClass2">
 								<label>Number of reactive rules per device</label>
-								<input type="number" name="simul-messages" id="useCase-stream-rules" placeholder="Number of reactive rules per device"/>
+								<input type="number" name="simul-messages" id="useCase-stream-rules" placeholder="Number of reactive rules per device" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<div class="12u$ myClass2">
 								<label>Number of polling rules per device</label>
-								<input type="number" name="simul-messages" id="useCase-polling-rules" placeholder="Number of polling rules per device"/>
+								<input type="number" name="simul-messages" id="useCase-polling-rules" placeholder="Number of polling rules per device" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<label>˚Message rate: 4 messages per hour.</label>
 						</div>
@@ -130,15 +130,15 @@
 						<div class="row uniform 50%">
 							<div class="12u$ myClass2">
 								<label>Number of assets˚</label>
-								<input type="number" name="simul-reactive" id="useCase-assets" placeholder="Number of assets"/>
+								<input type="number" name="simul-reactive" id="useCase-assets" placeholder="Number of assets" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<div class="12u$ myClass2">
 								<label>Number of periodic tasks per device</label>
-								<input type="number" name="simul-polling" id="useCase-polling" placeholder="Periodic tasks per device"/>
+								<input type="number" name="simul-polling" id="useCase-polling" placeholder="Periodic tasks per device" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<div class="12u$ myClass2">
 								<label>Average number of ML models per device (can be less than 1)</label>
-								<input type="number" name="simul-byoml" id="useCase-byoml" placeholder="ML models per device"/>
+								<input type="number" name="simul-byoml" id="useCase-byoml" placeholder="ML models per device" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<label>˚Message rate: 1 message per second</label>
 						</div>
@@ -146,7 +146,7 @@
 						<div class="row uniform 50%">
 							<div class="12u$ myClass2">
 								<label>Number of automation tasks˚</label>
-								<input type="number" name="simul-query" id="useCase-tasks" placeholder='API automation tasks'/>
+								<input type="number" name="simul-query" id="useCase-tasks" placeholder='API automation tasks' min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<label>˚Simulation with a task running once every hour</label>
 						</div>
