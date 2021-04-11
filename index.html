@@ -471,7 +471,7 @@
 									<h1>Waylay metrics explained</h1>
 									<div id="tenant">
 										<h2>Tenant</h2>
-										<p>Tenant fee is 5$ per month.</p>
+										<p>Tenant fee is $5 per month.</p>
 									</div>
 									<div id="p_functions">
 										<h2>Functions</h2>
@@ -482,14 +482,14 @@
 									<p>
 										If you execute a function 10 million times in one month, and it ran for 100ms each time, your charges would be calculated as follows:
 										<br/>
-										Monthly compute charges (1$ per million requests, $0.00002 per GB-s)
+										Monthly compute charges ($1 per million requests, $0.00002 per GB-s)
 										<br/>
 										Total compute (seconds) = 10M * (0.1sec) = 1,000,000 seconds
 										<br/>
 										Total compute (GB-s) = 1,000,000 * 128MB/1024 = 125,000 GB-s
 										<br/>
 
-										Total price: 10$ + (125000 * $0.00002) = 10$ + 2.5$ = 12.5$
+										Total price: $10 + (125000 * $0.00002) = $10 + $2.5 = $12.5
 									</p>
 								</div>
 								<div id="p_task">
@@ -500,59 +500,59 @@
 									</p>
 									<p>
 										Example, if we have a reactive task that sends an email every time the threshold is crossed (for instance temperature reading for a sensor) and if that threshold is crossed on average twice a day, then the total number of task transitions per month will be: <br/>
-										30days*2 conditions of the threshold crossing sensor triggered execution of * 1 sensor (email) = 60 steps = 60* 0.025$/1000 = 0.0015$
+										30days*2 conditions of the threshold crossing sensor triggered execution of * 1 sensor (email) = 60 steps = 60* $0.025/1000 = $0.0015
 									</p>
 									<h2>Task logs storage</h2>
-									<p>The price is 5$ per 1GB of task logs stored.</p>
+									<p>The price is $5 per 1GB of task logs stored.</p>
 								</div>
 								<div id="p_network">
 									<h2>Network egress</h2>
 									<p>
-										Network egress is the outbound data transfer and it is priced at 0.15$ per GB. Inbound traffic is free.
+										Network egress is the outbound data transfer and it is priced at $0.15 per GB. Inbound traffic is free.
 									</p>
 								</div>
 								<div id="p_messages">
 									<h2>Ingested Messages</h2>
 									The number of stream messages (payloads) entering in our system, regardless whether they are later stored or not. If stored, they will be present both in payload database, as well as in the metrics database, providing they come in the proper format. <br/>
-									Ingested message is a payload that arrives at the Broker. The cost is 0.3$ per million messages.
+									Ingested message is a payload that arrives at the Broker. The cost is $0.3 per million messages.
 								</div>
 								<div id="p_converter">
 									<h2>Converter calls</h2>
 									<p>
-										Each message payload can be processed by the velocity template prior to being sent to the Broker. The cost of converter calls is 1$ per million messages.
+										Each message payload can be processed by the velocity template prior to being sent to the Broker. The cost of converter calls is $1 per million messages.
 									</p>
 								</div>
 								<div id="p_time-series">
 									<h2>Time series database metrics</h2>
 									<p>
-										Time series database will not be metered in the first release. Please note that the cost will be 25$ per 1GB per month.
+										Time series database will not be metered in the first release. Please note that the cost will be $25 per 1GB per month.
 									</p>
 									<h3>TS write metrics</h3>
 									<p>
-										If the message payload has 3 metrics, one message that is stored will result in 3 data points written. The cost of writing metrics in the time series database is 5$ per 10 million data points.<br/>
+										If the message payload has 3 metrics, one message that is stored will result in 3 data points written. The cost of writing metrics in the time series database is $5 per 10 million data points.<br/>
 										Example:
 										If you have 100 devices, each sending data every 15 minutes, and each payload has three metrics, in one month you will be stiring:
-										100 devices * 30 days * 96 messages per day * 3 metrics = 864000 data points. Price of time series storage would be 864000 * 5/10000000 = 0.432$
+										100 devices * 30 days * 96 messages per day * 3 metrics = 864000 data points. Price of time series storage would be 864000 * 5/10000000 = $0.432
 									</p>
 									<h3>TS read scan</h3>
 									<p>
-										Every time you fetch data from the time series database (over UI or REST), Waylay meters the number of metrics scanned in the time series database. Please note that this is not the same as the number of returned metrics, in case your query uses the aggregates and grouping in your query.The cost is 1$ per 500 million metrics scanned.<br/>
+										Every time you fetch data from the time series database (over UI or REST), Waylay meters the number of metrics scanned in the time series database. Please note that this is not the same as the number of returned metrics, in case your query uses the aggregates and grouping in your query.The cost is $1 per 500 million metrics scanned.<br/>
 										Example:
 										If you ask for the temperature of one sensor over 1 week, and data is stored every 15 minutes, irrespectively whether  the query asks for all data or the aggregate, the read scan will be metered as: 7 days * 96 points = 672<br/>
 										If you call this query 10 times a day, for 100 sensors, that would be in one month:<br/>
-										100 sensors * 30 days * 10 times a day * 672 read scans = 20160000 scans and the total price would be 20160000 * 1/500000000 = 0.04$
+										100 sensors * 30 days * 10 times a day * 672 read scans = 20160000 scans and the total price would be 20160000 * 1/500000000 = $0.04
 									</p>
 								</div>
 								<div id="p_assets">
 									<h2>Assets</h2>
-									<p>Asset is a resource, resource type or a resource constraint. The price is 0.2$ per 100 assets and it is metered at the end of the calendar month.</p>
+									<p>Asset is a resource, resource type or a resource constraint. The price is $0.2 per 100 assets and it is metered at the end of the calendar month.</p>
 								</div>
 								<div id="p_payload">
 									<h2>Message(payload) database</h2>
 									<p>
 										Message database holds up to 100 messages per resource.
 										<h3>Message database size</h3>
-										The cost of the database is 25$ per GB per month, measured at the end of the calendar month.
+										The cost of the database is $25 per GB per month, measured at the end of the calendar month.
 									</p>
 									<h3>Message Read Scan</h3>
 									<p>
@@ -566,7 +566,7 @@
 									</p>
 									<h3>Resource database size</h3>
 									<p>
-										The cost of the database is 25$ per GB per month, measured at the end of the calendar month.
+										The cost of the database is $25 per GB per month, measured at the end of the calendar month.
 									</p>
 									<h3>Resource read scan</h3>
 									<p>
@@ -576,28 +576,28 @@
 								<div id="p_object">
 									<h2>Object database</h2>
 									<p>
-										The price is 0.1$ per GB, metered at the end of the calendar month.
+										The price is $0.1 per GB, metered at the end of the calendar month.
 									</p>
 									<h2>Object reads</h2>
-									<p>The total number of read bytes, price is 0.15$ per GB</p>
+									<p>The total number of read bytes, price is $0.15 per GB</p>
 									<h2>Objects writes</h2>
-									<p>The total number of write bytes, price is 0.15$ per GB</p>
+									<p>The total number of write bytes, price is $0.15 per GB</p>
 								</div>
 								<div id="p_alarms">
 									<h2>Alarms</h2>
 									<p>
-										The total number of alarms sent in one month. This metric includes all alarms: if the alarm is opened the count for that alarm will increase and it will be counted too. The price is 1$ per 1000 alarms triggered.
+										The total number of alarms sent in one month. This metric includes all alarms: if the alarm is opened the count for that alarm will increase and it will be counted too. The price is $1 per 1000 alarms triggered.
 									</p>
 								</div>
 								<div id="p_vault">
 									<h2>Vault</h2>
 									<p>
-										Vault enables you to keep your API keys encrypted at rest. It is metered as long as there is one entry in the vault. The price of this feature is 2$.
+										Vault enables you to keep your API keys encrypted at rest. It is metered as long as there is one entry in the vault. The price of this feature is $2.
 									</p>
 								</div>
 								<div id="p_byoml">
 									<h2>BYOML Compute time</h2>
-									<p>You are not charged for the number of models uploaded, only for usage, the compute time of the machine learning models. The price is 1$ per minute.</p>
+									<p>You are not charged for the number of models uploaded, only for usage, the compute time of the machine learning models. The price is $1 per minute.</p>
 								</div>
 							</section>
 						</div>
