@@ -597,7 +597,10 @@
 								</div>
 								<div id="p_byoml">
 									<h2>BYOML Compute time</h2>
-									<p>You are not charged for the number of models uploaded, only for usage, the compute time of the machine learning models. The price is $1 per minute.</p>
+									<p>You are not charged for the number of models uploaded, only for usage, the compute time of the machine learning models. The price is $1 per minute. The total computation time depends on the model complexity and on how often you wish to run the model per given resource. For instance, if you run a model every 15 minutes or once a day, that will highly influence the total cost, as in the latter case, the price is about 100 times cheaper.</p>
+									<p>
+										Example: if you run one ML model per device, every 15 minutes (~100), and you have 50 devices, you will have about 50*~100*30 ~ 150K invocations per month. If you run the same ML model once per day, you get to ~1.5K executions per month for 50 devices.
+									</p>
 								</div>
 							</section>
 						</div>
