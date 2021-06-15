@@ -109,9 +109,14 @@
     unit: "requests",
     metricName: "Payload converter"
   },
+  dashboard: {
+    price: 5,
+    unit: "organization",
+    metricName: "Dashboard"
+  },
   coupon:  {
     price: 200,
-    unit: "valid for 3 months",
+    unit: "valid for 1 month",
     metricName: "Free coupon"
   }
  }
