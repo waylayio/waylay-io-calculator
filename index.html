@@ -85,11 +85,11 @@
 						<h1>Automation</h1>
 						<div class="row uniform 50%">
 							<div class="12u$ myClass1">
-								<label>˚Stream based (threshold crossing) tasks per device</label>
+								<label>˚Stream based (threshold crossing) tasks per datta source or device</label>
 								<input type="number" name="simul-reactive" id="simul-reactive" placeholder="Rules triggered on stream threshold crossing" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<div class="12u$ myClass1">
-								<label>Number of periodic tasks per device</label>
+								<label>Number of periodic tasks per data source or device</label>
 								<input type="number" name="simul-polling" id="simul-polling" placeholder="Periodic tasks per device" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<label>˚ 15% of stream messages trigger threshold crossing. Polling tasks run every 15 minutes.</label>
@@ -97,11 +97,11 @@
 						<h1>Analytics</h1>
 						<div class="row uniform 50%">
 							<div class="12u$ myClass1">
-								<label>Average number of ML models per device (can be less than 1)</label>
+								<label>Average number of ML models per data source or device (can be less than 1)</label>
 								<input type="number" name="simul-byoml" id="simul-byoml" placeholder="ML models per device" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<div class="12u$ myClass1">
-								<label>Queries per device per day˚</label>
+								<label>Queries per data source or device per day˚</label>
 								<input type="number" name="simul-query" id="simul-query" placeholder="Queries per device per day" min="0" onkeyup="if(this.value<0){this.value=0}" />
 							</div>
 							<label>˚On Average 200 data points per query</label>
