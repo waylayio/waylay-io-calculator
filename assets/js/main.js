@@ -83,6 +83,7 @@
 			  $('#metrics-scanned').val($.urlParam('metrics_scanned'))
 			  $('#ml').val($.urlParam('ml'))
 					update()
+			  //$('#tabs').hide();
 			}
 					
 			

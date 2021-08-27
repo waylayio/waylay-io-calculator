@@ -12,8 +12,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic" rel="stylesheet" type="text/css" />
 	<style type="text/css">
-		.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
-	  background: #5541ce;
+	.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+		background: #5541ce;
 	}
 	</style>
 
@@ -358,273 +358,279 @@
 							<h3 class="icon fa-cogs"><span class="label">Task transitions</span></h3>
 							<a href="#p_task">Task transitions</a>
 						</li>
-						<li>
-							<h3 class="icon fa-file"><span class="label">Task log size [GB]</span></h3>
-							<a href="#p_task">Task log size [GB]</a>
-						</li>
-						<li>
-							<h3 class="icon fa-industry"><span class="label">Number of assets</span></h3>
-							<a href="#p_assets">Number of assets</a>
-						</li>
-						<li>
-							<h3 class="icon fa-database"><span class="label">Resource database size</span></h3>
-							<a href="#p_resource">Resource database size [GB]</a>
-						</li>
-						<li>
-							<h3 class="icon fa-envelope"><span class="label">Number of messages</span></h3>
-							<a href="#p_messages">Number of messages</a>
-						</li>
-						<li>
-							<li>
-								<h3 class="icon fa-bar-chart"><span class="label">Number of metrics stored</span></h3>
-								<a href="#p_time-series">Number of metrics stored</a>
-							</li>
-							<li>
-								<li>
-									<h3 class="icon fa-search-plus"><span class="label">Number of metrics scanned</span></h3>
-									<a href="#p_time-series">Number of metrics scanned</a>
-								</li>
-								<li>
-									<li>
-										<h3 class="icon fa-hourglass-1"><span class="label">ML minutes per month</span></h3>
-										<a href="#p_byoml">ML minutes per month</a>
-									</li>
-									<li>
-										<li>
-											<h3 class="icon fa-bell"><span class="label">Number of alarms per month</span></h3>
-											<a href="#p_alarms">Number of alarms per month</a>
-										</li>
-										<li>
-											<h3 class="icon fa-cloud"><span class="label">Object storage size</span></h3>
-											<a href="#p_object">Object storage size [GB]</a>
-										</li>
-										<li>
-											<h3 class="icon fa-cloud-upload"><span class="label">Object reads</span></h3>
-											<a href="#p_object">Object reads [GB]</a>
-										</li>
-										<li>
-											<h3 class="icon fa-cloud-download"><span class="label">Object writes</span></h3>
-											<a href="#p_object">Object writes [GB]</a>
-										</li>
-										<li>
-											<h3 class="icon fa-database"><span class="label">Message storage size</span></h3>
-											<a href="#p_payload">Message storage size [GB]</a>
-										</li>
-										<li>
-											<h3 class="icon fa-envelope-o"><span class="label">Message reads</span></h3>
-											<a href="#p_payload">Message object reads</a>
-										</li>
-										<li>
-											<h3 class="icon fa-connectdevelop"><span class="label">Memory Size</span></h3>
-											<a href="#">MQTT Broker</a>
-										</li>
-										<li>
-											<h3 class="icon fa-cog"><span class="label">Number of MQTT devices</span></h3>
-											<a href="#">Number of MQTT devices</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<hr/>
-							<h2 id="costtable">Estimated monthly cost</h2>
-							<table>
-								<tr>
-									<th>Total</th>
-									<th>Cost</th>
-								</tr>
-								<tr>
-									<td>Estimated monthly cost</td>
-									<td>$<span id="total-cost1">-</span></td>
-								</tr>
-								<tr>
-									<td>Volume discount</td>
-									<td><span id="discount">-</span></td>
-								</tr>
-							</table>
-							<h2>Details</h2>
-							<table id="estimation">
-							</table>
-							<h2 id="pricetable">Price table</h1>
-								<table id="billing">
-								</table>
-								<h2>Volume Discounts</h1>
-									<table>
-										<tr>
-											<th>Volume</th>
-											<th>Discount (%)</th>
-										</tr>
-										<tr>
-											<td><span id="volume1">-</span></td>
-											<td><span id="discount1">-</span></td>
-										</tr>
-										<tr>
-											<td><span id="volume2">-</span></td>
-											<td><span id="discount2">-</span></td>
-										</tr>
-										<tr>
-											<td><span id="volume3">-</span></td>
-											<td><span id="discount3">-</span></td>
-										</tr>
-									</table>
-								</section>
-								<section id="metrics_explained">
-									<h1>Waylay metrics explained</h1>
-									<div id="tenant">
-										<h2>Tenant</h2>
-										<p>Tenant fee is $5 per month.</p>
-									</div>
-									<div id="p_functions">
-										<h2>Functions</h2>
-										Function is a service that runs your code without provisioning or managing servers. You pay only for the compute time that you consume—there is no charge when your code is not running. When you use functions, you pay for two different things: the number of requests and duration. The price for duration depends on the amount of memory you allocate to your function and it is expressed in GB-second. In the current release, memory allocation is fixed to 128M, and you can’t change it.
-									</p>
-									<p>If you use Waylay native functions, such as Function sensor, you are not paying for any duration, only for the request, since this function is executed within rules engine - in about 0.2 ns.</p>
-									<h3>Example</h3>
-									<p>
-										If you execute a function 10 million times in one month, and it ran for 100ms each time, your charges would be calculated as follows:
-										<br/>
-										Monthly compute charges ($1 per million requests, $0.00002 per GB-s)
-										<br/>
-										Total compute (seconds) = 10M * (0.1sec) = 1,000,000 seconds
-										<br/>
-										Total compute (GB-s) = 1,000,000 * 128MB/1024 = 125,000 GB-s
-										<br/>
+					</li>
+					<li>
+						<h3 class="icon fa-file"><span class="label">Task log size [GB]</span></h3>
+						<a href="#p_task">Task log size [GB]</a>
+					</li>
+					<li>
+						<h3 class="icon fa-industry"><span class="label">Number of assets</span></h3>
+						<a href="#p_assets">Number of assets</a>
+					</li>
+					<li>
+						<h3 class="icon fa-database"><span class="label">Resource database size</span></h3>
+						<a href="#p_resource">Resource database size [GB]</a>
+					</li>
+					<li>
+						<h3 class="icon fa-envelope"><span class="label">Number of messages</span></h3>
+						<a href="#p_messages">Number of messages</a>
+					</li>
+				</li>
+				<li>
+					<li>
+						<h3 class="icon fa-bar-chart"><span class="label">Number of metrics stored</span></h3>
+						<a href="#p_time-series">Number of metrics stored</a>
+					</li>
+				</li>
+				<li>
+					<li>
+						<h3 class="icon fa-search-plus"><span class="label">Number of metrics scanned</span></h3>
+						<a href="#p_time-series">Number of metrics scanned</a>
+					</li>
+				</li>
+				<li>
+					<li>
+						<h3 class="icon fa-hourglass-1"><span class="label">ML minutes per month</span></h3>
+						<a href="#p_byoml">ML minutes per month</a>
+					</li>
+				</li>
+				<li>
+					<li>
+						<h3 class="icon fa-bell"><span class="label">Number of alarms per month</span></h3>
+						<a href="#p_alarms">Number of alarms per month</a>
+					</li>
+					<li>
+						<h3 class="icon fa-cloud"><span class="label">Object storage size</span></h3>
+						<a href="#p_object">Object storage size [GB]</a>
+					</li>
+				</li>
+				<li>
+					<h3 class="icon fa-cloud-upload"><span class="label">Object reads</span></h3>
+					<a href="#p_object">Object reads [GB]</a>
+				</li>
+				<li>
+					<h3 class="icon fa-cloud-download"><span class="label">Object writes</span></h3>
+					<a href="#p_object">Object writes [GB]</a>
+				</li>
+				<li>
+					<h3 class="icon fa-database"><span class="label">Message storage size</span></h3>
+					<a href="#p_payload">Message storage size [GB]</a>
+				</li>
+				<li>
+					<h3 class="icon fa-envelope-o"><span class="label">Message reads</span></h3>
+					<a href="#p_payload">Message object reads</a>
+				</li>
+				<li>
+					<h3 class="icon fa-connectdevelop"><span class="label">Memory Size</span></h3>
+					<a href="#">MQTT Broker</a>
+				</li>
+				<li>
+					<h3 class="icon fa-cog"><span class="label">Number of MQTT devices</span></h3>
+					<a href="#">Number of MQTT devices</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<hr/>
+	<h2 id="costtable">Estimated monthly cost</h2>
+	<table>
+		<tr>
+			<th>Total</th>
+			<th>Cost</th>
+		</tr>
+		<tr>
+			<td>Estimated monthly cost</td>
+			<td>$<span id="total-cost1">-</span></td>
+		</tr>
+		<tr>
+			<td>Volume discount</td>
+			<td><span id="discount">-</span></td>
+		</tr>
+	</table>
+	<h2>Details</h2>
+	<table id="estimation">
+	</table>
+	<h2 id="pricetable">Price table</h2>
+	<table id="billing">
+	</table>
+	<h2>Volume Discounts</h2>
+	<table>
+		<tr>
+			<th>Volume</th>
+			<th>Discount (%)</th>
+		</tr>
+		<tr>
+			<td><span id="volume1">-</span></td>
+			<td><span id="discount1">-</span></td>
+		</tr>
+		<tr>
+			<td><span id="volume2">-</span></td>
+			<td><span id="discount2">-</span></td>
+		</tr>
+		<tr>
+			<td><span id="volume3">-</span></td>
+			<td><span id="discount3">-</span></td>
+		</tr>
+	</table>
+</section>
+<section id="metrics_explained">
+	<h1>Waylay metrics explained</h1>
+	<div id="tenant">
+		<h2>Tenant</h2>
+		<p>Tenant fee is $5 per month.</p>
+	</div>
+	<div id="p_functions">
+		<h2>Functions</h2>
+		Function is a service that runs your code without provisioning or managing servers. You pay only for the compute time that you consume—there is no charge when your code is not running. When you use functions, you pay for two different things: the number of requests and duration. The price for duration depends on the amount of memory you allocate to your function and it is expressed in GB-second. In the current release, memory allocation is fixed to 128M, and you can’t change it.
+	</p>
+	<p>If you use Waylay native functions, such as Function sensor, you are not paying for any duration, only for the request, since this function is executed within rules engine - in about 0.2 ns.</p>
+	<h3>Example</h3>
+	<p>
+		If you execute a function 10 million times in one month, and it ran for 100ms each time, your charges would be calculated as follows:
+		<br/>
+		Monthly compute charges ($1 per million requests, $0.00002 per GB-s)
+		<br/>
+		Total compute (seconds) = 10M * (0.1sec) = 1,000,000 seconds
+		<br/>
+		Total compute (GB-s) = 1,000,000 * 128MB/1024 = 125,000 GB-s
+		<br/>
 
-										Total price: $10 + (125000 * $0.00002) = $10 + $2.5 = $12.5
-									</p>
-								</div>
-								<div id="p_task">
-									<h2>Task transitions</h2>
-									<p>
-										Task transitions occur every time a task invocation infers that any other node needs to be executed as the result of a previous node execution.    <br/>
-										However, if the task has only one sensor, and that task runs periodically or as the cron expression, then the number of steps in that task will always be zero. Even if that task has multiple sensors, but these sensors are not connected, the number of steps for such a task will always be zero.
-									</p>
-									<p>
-										Example, if we have a reactive task that sends an email every time the threshold is crossed (for instance temperature reading for a sensor) and if that threshold is crossed on average twice a day, then the total number of task transitions per month will be: <br/>
-										30days*2 conditions of the threshold crossing sensor triggered execution of * 1 sensor (email) = 60 steps = 60* $0.025/1000 = $0.0015
-									</p>
-									<h2>Task logs storage</h2>
-									<p>The price is $5 per 1GB of task logs stored.</p>
-								</div>
-								<div id="p_network">
-									<h2>Network egress</h2>
-									<p>
-										Network egress is the outbound data transfer and it is priced at $0.15 per GB. Inbound traffic is free.
-									</p>
-								</div>
-								<div id="p_messages">
-									<h2>Ingested Messages</h2>
-									The number of stream messages (payloads) entering in our system, regardless whether they are later stored or not. If stored, they will be present both in payload database, as well as in the metrics database, providing they come in the proper format. <br/>
-									Ingested message is a payload that arrives at the Broker. The cost is $0.3 per million messages.
-								</div>
-								<div id="p_converter">
-									<h2>Converter calls</h2>
-									<p>
-										Each message payload can be processed by the velocity template prior to being sent to the Broker. The cost of converter calls is $1 per million messages.
-									</p>
-								</div>
-								<div id="p_time-series">
-									<h2>Time series database metrics</h2>
-									<p>
-										Time series database will not be metered in the first release. Please note that the cost will be $25 per 1GB per month.
-									</p>
-									<h3>TS write metrics</h3>
-									<p>
-										If the message payload has 3 metrics, one message that is stored will result in 3 data points written. The cost of writing metrics in the time series database is $5 per 10 million data points.<br/>
-										Example:
-										If you have 100 devices, each sending data every 15 minutes, and each payload has three metrics, in one month you will be stiring:
-										100 devices * 30 days * 96 messages per day * 3 metrics = 864000 data points. Price of time series storage would be 864000 * 5/10000000 = $0.432
-									</p>
-									<h3>TS read scan</h3>
-									<p>
-										Every time you fetch data from the time series database (over UI or REST), Waylay meters the number of metrics scanned in the time series database. Please note that this is not the same as the number of returned metrics, in case your query uses the aggregates and grouping in your query.The cost is $1 per 500 million metrics scanned.<br/>
-										Example:
-										If you ask for the temperature of one sensor over 1 week, and data is stored every 15 minutes, irrespectively whether  the query asks for all data or the aggregate, the read scan will be metered as: 7 days * 96 points = 672<br/>
-										If you call this query 10 times a day, for 100 sensors, that would be in one month:<br/>
-										100 sensors * 30 days * 10 times a day * 672 read scans = 20160000 scans and the total price would be 20160000 * 1/500000000 = $0.04
-									</p>
-								</div>
-								<div id="p_assets">
-									<h2>Assets</h2>
-									<p>Asset is a resource, resource type or a resource constraint. The price is $0.2 per 100 assets and it is metered at the end of the calendar month.</p>
-								</div>
-								<div id="p_payload">
-									<h2>Message(payload) database</h2>
-									<p>
-										Message database holds up to 100 messages per resource.
-										<h3>Message database size</h3>
-										The cost of the database is $25 per GB per month, measured at the end of the calendar month.
-									</p>
-									<h3>Message Read Scan</h3>
-									<p>
-										It meters the number of messages read from the database. The cost is $0.1 per 100.000 object reads.
-									</p>
-								</div>
-								<div id="p_resource">
-									<h2>Resource database</h2>
-									<p>
-										Resource database holds metadata for resources (and all change logs), resource types and resource constraints.
-									</p>
-									<h3>Resource database size</h3>
-									<p>
-										The cost of the database is $25 per GB per month, measured at the end of the calendar month.
-									</p>
-									<h3>Resource read scan</h3>
-									<p>
-										Not metered for the moment.
-									</p>
-								</div>
-								<div id="p_object">
-									<h2>Object database</h2>
-									<p>
-										The price is $0.1 per GB, metered at the end of the calendar month.
-									</p>
-									<h2>Object reads</h2>
-									<p>The total number of read bytes, price is $0.15 per GB</p>
-									<h2>Objects writes</h2>
-									<p>The total number of write bytes, price is $0.15 per GB</p>
-								</div>
-								<div id="p_alarms">
-									<h2>Alarms</h2>
-									<p>
-										The total number of alarms sent in one month. This metric includes all alarms: if the alarm is opened the count for that alarm will increase and it will be counted too. The price is $1 per 1000 alarms triggered.
-									</p>
-								</div>
-								<div id="p_vault">
-									<h2>Vault</h2>
-									<p>
-										Vault enables you to keep your API keys encrypted at rest. It is metered as long as there is one entry in the vault. The price of this feature is $2.
-									</p>
-								</div>
-								<div id="p_byoml">
-									<h2>BYOML Compute time</h2>
-									<p>You are not charged for the number of models uploaded, only for usage, the compute time of the machine learning models. The price is $1 per minute. The total computation time depends on the model complexity and on how often you wish to run the model per given resource. For instance, if you run a model every 15 minutes or once a day, that will highly influence the total cost, as in the latter case, the price is about 100 times cheaper.</p>
-									<p>
-										Example: if you run one ML model per device, every 15 minutes (~100), and you have 50 devices, you will have about 50*~100*30 ~ 150K invocations per month. If you run the same ML model once per day, you get to ~1.5K executions per month for 50 devices.
-									</p>
-								</div>
-							</section>
-						</div>
+		Total price: $10 + (125000 * $0.00002) = $10 + $2.5 = $12.5
+	</p>
+</div>
+<div id="p_task">
+	<h2>Task transitions</h2>
+	<p>
+		Task transitions occur every time a task invocation infers that any other node needs to be executed as the result of a previous node execution.    <br/>
+		However, if the task has only one sensor, and that task runs periodically or as the cron expression, then the number of steps in that task will always be zero. Even if that task has multiple sensors, but these sensors are not connected, the number of steps for such a task will always be zero.
+	</p>
+	<p>
+		Example, if we have a reactive task that sends an email every time the threshold is crossed (for instance temperature reading for a sensor) and if that threshold is crossed on average twice a day, then the total number of task transitions per month will be: <br/>
+		30days*2 conditions of the threshold crossing sensor triggered execution of * 1 sensor (email) = 60 steps = 60* $0.025/1000 = $0.0015
+	</p>
+	<h2>Task logs storage</h2>
+	<p>The price is $5 per 1GB of task logs stored.</p>
+</div>
+<div id="p_network">
+	<h2>Network egress</h2>
+	<p>
+		Network egress is the outbound data transfer and it is priced at $0.15 per GB. Inbound traffic is free.
+	</p>
+</div>
+<div id="p_messages">
+	<h2>Ingested Messages</h2>
+	The number of stream messages (payloads) entering in our system, regardless whether they are later stored or not. If stored, they will be present both in payload database, as well as in the metrics database, providing they come in the proper format. <br/>
+	Ingested message is a payload that arrives at the Broker. The cost is $0.3 per million messages.
+</div>
+<div id="p_converter">
+	<h2>Converter calls</h2>
+	<p>
+		Each message payload can be processed by the velocity template prior to being sent to the Broker. The cost of converter calls is $1 per million messages.
+	</p>
+</div>
+<div id="p_time-series">
+	<h2>Time series database metrics</h2>
+	<p>
+		Time series database will not be metered in the first release. Please note that the cost will be $25 per 1GB per month.
+	</p>
+	<h3>TS write metrics</h3>
+	<p>
+		If the message payload has 3 metrics, one message that is stored will result in 3 data points written. The cost of writing metrics in the time series database is $5 per 10 million data points.<br/>
+		Example:
+		If you have 100 devices, each sending data every 15 minutes, and each payload has three metrics, in one month you will be stiring:
+		100 devices * 30 days * 96 messages per day * 3 metrics = 864000 data points. Price of time series storage would be 864000 * 5/10000000 = $0.432
+	</p>
+	<h3>TS read scan</h3>
+	<p>
+		Every time you fetch data from the time series database (over UI or REST), Waylay meters the number of metrics scanned in the time series database. Please note that this is not the same as the number of returned metrics, in case your query uses the aggregates and grouping in your query.The cost is $1 per 500 million metrics scanned.<br/>
+		Example:
+		If you ask for the temperature of one sensor over 1 week, and data is stored every 15 minutes, irrespectively whether  the query asks for all data or the aggregate, the read scan will be metered as: 7 days * 96 points = 672<br/>
+		If you call this query 10 times a day, for 100 sensors, that would be in one month:<br/>
+		100 sensors * 30 days * 10 times a day * 672 read scans = 20160000 scans and the total price would be 20160000 * 1/500000000 = $0.04
+	</p>
+</div>
+<div id="p_assets">
+	<h2>Assets</h2>
+	<p>Asset is a resource, resource type or a resource constraint. The price is $0.2 per 100 assets and it is metered at the end of the calendar month.</p>
+</div>
+<div id="p_payload">
+	<h2>Message(payload) database</h2>
+	<p>
+		Message database holds up to 100 messages per resource.
+		<h3>Message database size</h3>
+		The cost of the database is $25 per GB per month, measured at the end of the calendar month.
+	</p>
+	<h3>Message Read Scan</h3>
+	<p>
+		It meters the number of messages read from the database. The cost is $0.1 per 100.000 object reads.
+	</p>
+</div>
+<div id="p_resource">
+	<h2>Resource database</h2>
+	<p>
+		Resource database holds metadata for resources (and all change logs), resource types and resource constraints.
+	</p>
+	<h3>Resource database size</h3>
+	<p>
+		The cost of the database is $25 per GB per month, measured at the end of the calendar month.
+	</p>
+	<h3>Resource read scan</h3>
+	<p>
+		Not metered for the moment.
+	</p>
+</div>
+<div id="p_object">
+	<h2>Object database</h2>
+	<p>
+		The price is $0.1 per GB, metered at the end of the calendar month.
+	</p>
+	<h2>Object reads</h2>
+	<p>The total number of read bytes, price is $0.15 per GB</p>
+	<h2>Objects writes</h2>
+	<p>The total number of write bytes, price is $0.15 per GB</p>
+</div>
+<div id="p_alarms">
+	<h2>Alarms</h2>
+	<p>
+		The total number of alarms sent in one month. This metric includes all alarms: if the alarm is opened the count for that alarm will increase and it will be counted too. The price is $1 per 1000 alarms triggered.
+	</p>
+</div>
+<div id="p_vault">
+	<h2>Vault</h2>
+	<p>
+		Vault enables you to keep your API keys encrypted at rest. It is metered as long as there is one entry in the vault. The price of this feature is $2.
+	</p>
+</div>
+<div id="p_byoml">
+	<h2>BYOML Compute time</h2>
+	<p>You are not charged for the number of models uploaded, only for usage, the compute time of the machine learning models. The price is $1 per minute. The total computation time depends on the model complexity and on how often you wish to run the model per given resource. For instance, if you run a model every 15 minutes or once a day, that will highly influence the total cost, as in the latter case, the price is about 100 times cheaper.</p>
+	<p>
+		Example: if you run one ML model per device, every 15 minutes (~100), and you have 50 devices, you will have about 50*~100*30 ~ 150K invocations per month. If you run the same ML model once per day, you get to ~1.5K executions per month for 50 devices.
+	</p>
+</div>
+</section>
+</div>
 
-						<!-- Footer -->
-						<footer id="footer">
-							<ul class="icons">
-								<li><a href="https://twitter.com/waylay_io" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="mailto:sales@waylay.io" class="icon fa-envelope-o"><span class="label"></span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Waylay IO</li>
-								<!--<li>login : <a href="https://console-io.waylay.io">Waylay IO</a></li> -->
-							</ul>
-						</footer>
+<!-- Footer -->
+<footer id="footer">
+	<ul class="icons">
+		<li><a href="https://twitter.com/waylay_io" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+		<li><a href="mailto:sales@waylay.io" class="icon fa-envelope-o"><span class="label"></span></a></li>
+	</ul>
+	<ul class="copyright">
+		<li>&copy; Waylay IO</li>
+		<!--<li>login : <a href="https://console-io.waylay.io">Waylay IO</a></li> -->
+	</ul>
+</footer>
 
-						<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-						<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-						<script src="billing.js"></script>
-						<script src="assets/js/jquery.poptrox.min.js"></script>
-						<script src="assets/js/jquery.steps.min.js"></script>
-						<script src="assets/js/skel.min.js"></script>
-						<script src="assets/js/util.js"></script>
-						<script src="assets/js/main.js"></script>
-					</body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="billing.js"></script>
+<script src="assets/js/jquery.poptrox.min.js"></script>
+<script src="assets/js/jquery.steps.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
 
-					</html>
+</html>
