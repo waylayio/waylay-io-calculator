@@ -325,11 +325,7 @@
 					  result.tenantCost = billing.tenant.price
 					}
 					else{
-							$('#enterprise-message').text('The pricing for the Waylay Enterprise platform is composed of:')
-							$('#enterprise-message1').text('(1) license subscription') 
-							$('#enterprise-message2').text('(2) usage (see calculator below)') 
-							$('#enterprise-message3').text('(3) SLA support') 
-							$('#enterprise-message4').text('(4) customized professional services')
+						 delete result.tenantCost
 						 $('.enterprise').show();
 					}
 
@@ -394,6 +390,9 @@
 					} else if (result.totalCost < billing.coupon.price) {
 						 result.totalCost = 0
 					}*/
+					if(MODE != 'IO') {
+						delete billing.tenant
+					}
 
 					return result;
 				}
