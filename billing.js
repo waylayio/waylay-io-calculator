@@ -113,11 +113,6 @@
     price: 5,
     unit: "organization",
     metricName: "Dashboard"
-  },
-  coupon:  {
-    price: 200,
-    unit: "valid for 1 month",
-    metricName: "Free coupon"
   }
  }
 
