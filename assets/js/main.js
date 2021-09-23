@@ -32,6 +32,7 @@
 	});
 
 	$(function() {
+		 var MODE = 'IO'
 		 var $window = $(window),
 			$body = $('body'),
 			$header = $('#header');
@@ -71,6 +72,7 @@
 			 $('#simul-devices').val($.urlParam('devices'))
 				recalc()
 			} else {
+				 MODE = $.urlParam('ENTERPRISE') || 'IO'
 					$('#number-executions').val($.urlParam('functions'))
 					$('#executed-estimation-time').val($.urlParam('function_time') || 100)
 					$('#task-transitions').val($.urlParam('steps'))
@@ -318,7 +320,18 @@
 							$('#devices').val('0')
 					}
 
-					result.tenantCost = billing.tenant.price
+					if(MODE == 'IO'){
+							$('.enterprise').hide();
+					  result.tenantCost = billing.tenant.price
+					}
+					else{
+							$('#enterprise-message').text('The pricing for the Waylay Enterprise platform is composed of:')
+							$('#enterprise-message1').text('(1) license subscription') 
+							$('#enterprise-message2').text('(2) usage (see calculator below)') 
+							$('#enterprise-message3').text('(3) SLA support') 
+							$('#enterprise-message4').text('(4) customized professional services')
+						 $('.enterprise').show();
+					}
 
 					var billableRequests = numberOfExecutions;
 					var requestCost = billableRequests * (billing.requestCharge.price);
